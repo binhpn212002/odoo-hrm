@@ -14,6 +14,7 @@ HR Attendance Custom
     'website': 'https://www.yourcompany.com',
 
     'category': 'Human Resources',
+    
     'version': '1.0.0',
 
     # Phụ thuộc bắt buộc
