@@ -24,8 +24,10 @@ HR Attendance Custom
 
     # Dữ liệu load khi cài module
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/res_config_setting.xml'
+        'security/ir.model.access.csv',
+        'views/res_config_setting.xml',
+        'views/penalty_views.xml',
+        'views/hr_attendance_view.xml'
     ],
 
     # Dữ liệu demo
