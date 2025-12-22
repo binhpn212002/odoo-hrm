@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_attendance_penalty_rule_tree_view" model="ir.ui.view">
+        <field name="name">hr.attendance.penalty.rule.tree.view</field>
+        <field name="model">hr.attendance.penalty.rule</field>
+
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="from_minutes"/>
+                    <field name="to_minutes"/>
+                    <field name="penalty_amount"/>
+                    <field name="currency_id"/>
+            </tree>
+
+        </field>
+    </record>
+    <record id="hr_attendance_penalty_rule_form_view" model="ir.ui.view">
+        <field name="name">hr.attendance.penalty.rule.form.view</field>
+        <field name="model">hr.attendance.penalty.rule</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="from_minutes"/>
+                        <field name="to_minutes"/>
+                        <field name="penalty_amount"/>
+                        <field name="currency_id"/>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hr_attendance_penalty_rule_action" model="ir.actions.act_window">
+        <field name="name">Attendance Penalty Rule</field>
+        <field name="res_model">hr.attendance.penalty.rule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="hr_attendance_penalty_rule_menu" name="Attendance Penalty Rule"
+              parent="hr_attendance.menu_hr_attendance_root" action="hr_attendance_penalty_rule_action"/>
+</odoo>
