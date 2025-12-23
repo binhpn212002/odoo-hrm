@@ -27,7 +27,9 @@ HR Attendance Custom
         'security/ir.model.access.csv',
         'views/res_config_setting.xml',
         'views/penalty_views.xml',
-        'views/hr_attendance_view.xml'
+        'views/hr_attendance_view.xml',
+        'views/hr_penalty_reward_monthly_summary_views.xml'
+
     ],
 
     # Dữ liệu demo

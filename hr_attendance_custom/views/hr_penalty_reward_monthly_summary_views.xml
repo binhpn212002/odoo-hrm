@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_penalty_reward_monthly_summary_tree_view" model="ir.ui.view">
+        <field name="name">hr.penalty.reward.monthly.summary.tree.view</field>
+        <field name="model">hr.penalty.reward.monthly.summary</field>
+        <field name="priority" eval="90"/>
+        <field name="arch" type="xml">
+
+            <tree>
+                <field name="employee_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="penalty_reward_date"/>
+                <field name="total_penalty"/>
+                <field name="total_reward"/>
+                <field name="total_penalty_reward"/>
+                <field name="currency_id"/>
+            </tree>
+
+        </field>
+    </record>
+    <record id="hr_penalty_reward_monthly_summary_form_view" model="ir.ui.view">
+        <field name="name">hr.penalty.reward.monthly.summary.form.view</field>
+        <field name="model">hr.penalty.reward.monthly.summary</field>
+        <field name="arch" type="xml">
+            <form>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="month"/>
+                            <field name="year"/>
+                            <field name="penalty_reward_date"/>
+                            <field name="total_penalty" readonly="1"/>
+                            <field name="total_reward" readonly="1"/>
+                            <field name="total_penalty_reward" readonly="1"/>
+                            <field name="currency_id"/>
+                        </group>
+            </form>
+        </field>
+    </record>
+    <record id="hr_penalty_reward_monthly_summary_action" model="ir.actions.act_window">
+        <field name="name">Penalty Reward Monthly Summary</field>
+        <field name="res_model">hr.penalty.reward.monthly.summary</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="hr_penalty_reward_monthly_summary_menu" name="Penalty Reward Monthly Summary"
+              parent="hr_attendance.menu_hr_attendance_root" action="hr_penalty_reward_monthly_summary_action"/>
+</odoo>
