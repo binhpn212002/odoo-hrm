@@ -17,7 +17,6 @@ Long description of module's purpose
     'views/login_layout.xml',
     'views/login.xml',
     'views/signup.xml',
-    'views/hrm_theme.xml',
     'views/res_user.xml',
     'demo/hrm_theme.xml'
   ],
@@ -26,26 +25,9 @@ Long description of module's purpose
   ],
   'assets': {
     'web.assets_backend': [
-      'hrm_theme/static/src/form/*.scss',
-      'hrm_theme/static/src/views/list/*.js',
-      'hrm_theme/static/src/views/list/*.xml',
-      'hrm_theme/static/src/views/list/*.scss',
-      'hrm_theme/static/src/views/list/**/*.xml',
-      'hrm_theme/static/src/views/list/**/*.js',
-      'hrm_theme/static/src/views/list/**/*.scss',
-      'hrm_theme/static/src/search/*.js',
-      'hrm_theme/static/src/search/*.xml',
-      'hrm_theme/static/src/search/*.scss',
-      'hrm_theme/static/src/search/**/*.xml',
-      'hrm_theme/static/src/search/**/*.js',
-      'hrm_theme/static/src/search/**/*.scss',
-      'hrm_theme/static/src/constant/constant.js',
       'hrm_theme/static/src/**/*.js',
       'hrm_theme/static/src/**/*.xml',
-      'hrm_theme/static/src/**/*.scss',
-      'hrm_theme/static/src/pages/**/*.js',
-      'hrm_theme/static/src/pages/**/*.xml',
-      'hrm_theme/static/src/pages/**/*.scss'
+      'hrm_theme/static/src/**/*.scss'
     ],
   },
 }

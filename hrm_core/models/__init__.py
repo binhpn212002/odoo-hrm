@@ -2,4 +2,3 @@
 
 from . import ir_ui_menu
 from . import real_config_setting
-from . import hrm_http

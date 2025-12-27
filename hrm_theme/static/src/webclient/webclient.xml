@@ -7,9 +7,6 @@
         <xpath expr="//NavBar" position="replace">
             <HrmNavbar/>
         </xpath>
-        <xpath expr="//MainComponentsContainer" position="before">
-            <HrmAction/>
-        </xpath>
         <xpath expr="." position="inside">
                  <link
                   rel="stylesheet"
