@@ -1,0 +1,618 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* vitech_real_estate_theme
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-14 03:12+0000\n"
+"PO-Revision-Date: 2024-11-14 03:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__model_test_theme__text_selection__action
+msgid "Action"
+msgstr "Hành động"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_needaction
+msgid "Action Needed"
+msgstr "Cần hành động"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+#, python-format
+msgid ""
+"Add\n"
+"                Custom\n"
+"                Filter"
+msgstr "Thêm bộ lọc tùy chỉnh"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/views/list/list_renderer.js:0
+#: code:addons/vitech_real_estate_theme/static/src/views/list/list_renderer_theme.xml:0
+#, python-format
+msgid "Add a line"
+msgstr "Thêm một dòng"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/components/navbar/apps_menu.xml:0
+#: code:addons/vitech_real_estate_theme/static/src/pages/home/home.xml:0
+#, python-format
+msgid "App Icon"
+msgstr "Biểu tượng ứng dụng"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng tệp đính kèm"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#101924
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#434184
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__text_color__#000000
+#, python-format
+msgid "Black"
+msgstr "Đen"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#4cc9fe
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#37afe1
+#, python-format
+msgid "Blue"
+msgstr "Xanh dương"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#f7dcb9
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#deac80
+#, python-format
+msgid "Brown"
+msgstr "Nâu"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid "Bạn chưa có tài khoản?"
+msgstr "Bạn chưa có tài khoản?"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+msgid "Bạn đã có tài khoản rồi?"
+msgstr "Bạn đã có tài khoản rồi?"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+#, python-format
+msgid "Comparison"
+msgstr "So sánh"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__create_uid
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__create_uid
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__create_date
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__create_date
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__create_date
+msgid "Created on"
+msgstr "Được tạo vào ngày"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid "Database"
+msgstr "Cơ sở dữ liệu"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+#, python-format
+msgid "Delete item"
+msgstr "Xóa mục"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model,name:vitech_real_estate_theme.model_model_test_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__display_name
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__display_name
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.vitech_auth_signup_fields
+msgid "Email"
+msgstr "Email"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+#, python-format
+msgid "Favorites"
+msgstr "Yêu thích"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+#, python-format
+msgid "Filters"
+msgstr "Bộ lọc"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model,name:vitech_real_estate_theme.model_res_users
+msgid "Giỏ hàng"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#f5f4f8
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__dropdown_item_menu__#cecece
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#cecece
+#, python-format
+msgid "Gray"
+msgstr "Xám"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#a0d683
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#72bf78
+#, python-format
+msgid "Green"
+msgstr "Xanh lá"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+#, python-format
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid "Hiện mật khẩu"
+msgstr "Hiện mật khẩu"
+
+#. module: vitech_real_estate_theme
+#: model:ir.actions.client,name:vitech_real_estate_theme.vitech_real_estate_theme_home
+#: model:ir.ui.menu,name:vitech_real_estate_theme.vitech_real_estate_theme_home_menu
+msgid "Home"
+msgstr "Trang chủ"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/components/navbar/apps_menu.xml:0
+#, python-format
+msgid "HotLine:"
+msgstr "Đường dây nóng:"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.vitech_auth_signup_fields
+msgid "Họ tên"
+msgstr "Họ tên"
+
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__id
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__id
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__id
+msgid "ID"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.test_theme_view_form
+msgid "Id"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_model_test_theme__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu được chọn, tin nhắn mới cần bạn chú ý."
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_model_test_theme__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu được chọn, một số tin nhắn gặp lỗi khi gửi."
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_is_follower
+msgid "Is Follower"
+msgstr "Là người theo dõi"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__write_uid
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__write_uid
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__write_date
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__write_date
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.vitech_reset_password
+msgid "Lưu"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_res_users__dropdown_item_menu
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__dropdown_item_menu
+msgid "Menu List"
+msgstr "Danh sách Menu"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_has_error
+msgid "Message Delivery error"
+msgstr "Lỗi gửi tin nhắn"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_ids
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.vitech_auth_signup_fields
+msgid "Mật khẩu"
+msgstr "Password"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__name
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/form/form_controller_theme.xml:0
+msgid "New"
+msgstr "Mới"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.vitech_auth_signup_fields
+msgid "Nhập lại mật khẩu"
+msgstr "Re-enter Password"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_model_test_theme__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Số tin nhắn cần hành động"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_model_test_theme__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số tin nhắn có lỗi gửi"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#fab12f
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#fa812f
+msgid "Orange"
+msgstr "Cam"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_res_users__primary_color
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__primary_color
+msgid "Primary Color"
+msgstr "Màu chính"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__app_bar_color__#7e60bf
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#433878
+msgid "Purple"
+msgstr "Tím"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid "Quên mật khẩu"
+msgstr "Forgot password"
+
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__menuitem_color__#d89959
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#d85959
+#, python-format
+msgid "Red"
+msgstr "Đỏ"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__model_test_theme__text_selection__report
+msgid "Report"
+msgstr "Báo cáo"
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/webclient/webclient.xml:0
+#: code:addons/vitech_real_estate_theme/static/src/webclient/webclient.xml:0
+#: code:addons/vitech_real_estate_theme/static/src/webclient/webclient.xml:0
+msgid "Search..."
+msgstr "Tìm kiếm..."
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+msgid ""
+"Select\n"
+"                                        <i class=\"fa fa-database\" role=\"img\" aria-label=\"Database\" title=\"Database\"/>"
+msgstr "Chọn\n<i class=\"fa fa-database\" role=\"img\" aria-label=\"Database\" title=\"Cơ sở dữ liệu\"/>"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid ""
+"Select\n"
+"                                    <i class=\"fa fa-database\" role=\"img\" aria-label=\"Database\" title=\"Database\"/>"
+msgstr "Chọn\n<i class=\"fa fa-database\" role=\"img\" aria-label=\"Database\" title=\"Cơ sở dữ liệu\"/>"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_res_users__theme_id
+msgid "Select a theme for the user"
+msgstr "Chọn một chủ đề cho người dùng"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_res_users__app_bar_color
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_res_users__dropdown_item_menu
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_res_users__primary_color
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_res_users__text_color
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_vitech_theme__app_bar_color
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_vitech_theme__dropdown_item_menu
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_vitech_theme__primary_color
+msgid "Select the primary color for the user interface."
+msgstr "Chọn màu chính cho giao diện người dùng"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,help:vitech_real_estate_theme.field_vitech_theme__text_color
+msgid "Select the text color for the user interface."
+msgstr "Chọn màu văn bản cho giao diện người dùng"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__test_many2many
+msgid "Test Many2Many"
+msgstr "Kiểm tra Many2Many"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__test_theme_id
+msgid "Test Theme"
+msgstr "Chủ đề kiểm tra"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__text_color
+msgid "Text Color"
+msgstr "Màu văn bản"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_res_users__text_color
+msgid "Text color"
+msgstr "Màu văn bản"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_res_users__theme_id
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.view_users_form_simple_modif_inherit
+msgid "Theme"
+msgstr "Chủ đề"
+
+#. module: vitech_real_estate_theme
+#: model:ir.actions.act_window,name:vitech_real_estate_theme.action_vitech_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.view_vitech_theme_tree
+msgid "Themes"
+msgstr "Các chủ đề"
+
+#. module: vitech_real_estate_theme
+#: code:addons/vitech_real_estate_theme/static/src/search/search_bar_menu/search_bar_menu_theme.xml:0
+msgid "Toggle Search Panel"
+msgstr "Chuyển đổi bảng tìm kiếm"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.test_theme_view_form
+msgid "Tên"
+msgstr "Name"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+msgid "Tên hiển thị"
+msgstr "Display Name"
+
+#. module: vitech_real_estate_theme
+#: code:addons/vitech_real_estate_theme/static/src/components/navbar/navbar.xml:0
+msgid "User"
+msgstr "Người dùng"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__value
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_real_estate_theme__value2
+msgid "Value2"
+msgstr "Giá trị 2"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model,name:vitech_real_estate_theme.model_vitech_theme
+msgid "Vitech Theme"
+msgstr "Chủ đề Vitech"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__dropdown_item_menu__#ffffff
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__primary_color__#ffffff
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__text_color__#ffffff
+msgid "White"
+msgstr "Trắng"
+
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+msgid "Xác nhận mật khẩu"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.test_theme_view_form
+msgid "_form"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__age
+msgid "age"
+msgstr "Tuổi"
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.list
+msgid "asdasdadasdasdasd"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#. odoo-javascript
+#: code:addons/vitech_real_estate_theme/static/src/views/list/list_renderer_theme.xml:0
+#, python-format
+msgid "item.data.is_favorite"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__name
+msgid "name"
+msgstr "Tên"
+
+#. module: vitech_real_estate_theme
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_model_test_theme__text_selection
+msgid "selection"
+msgstr "Lựa chọn"
+
+#. module: vitech_real_estate_theme
+#: model:ir.actions.act_window,name:vitech_real_estate_theme.test_theme_view_action
+msgid "test_theme"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.test_theme_view_tree
+msgid "test_theme_tree"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.list
+msgid "tên"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.actions.server,name:vitech_real_estate_theme.action_server
+msgid "vitech_real_estate_theme server"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.actions.act_window,name:vitech_real_estate_theme.action_window
+msgid "vitech_real_estate_theme window"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model:ir.model,name:vitech_real_estate_theme.model_vitech_real_estate_theme
+msgid "vitech_real_estate_theme.vitech_real_estate_theme"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.auth_signup_inherit
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid "Đăng ký"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.login_custom
+msgid "Đăng nhập"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#: model_terms:ir.ui.view,arch_db:vitech_real_estate_theme.vitech_reset_password
+msgid "Đổi mật khẩu"
+msgstr ""
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__info_color
+#, python-format
+msgid "Info color"
+msgstr "Màu phụ 2"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields,field_description:vitech_real_estate_theme.field_vitech_theme__menuitem_color
+#, python-format
+msgid "Menuitem Color"
+msgstr "Màu nút chuyển trang"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__info_color__#006bff
+#, python-format
+msgid "Sky"
+msgstr "Xanh dương"
+
+#. module: vitech_real_estate_theme
+#. odoo-python
+#: code:addons/vitech_real_estate_theme/models/vitech_theme.py:0
+#: model:ir.model.fields.selection,name:vitech_real_estate_theme.selection__vitech_theme__secondary_color__#ffde00
+#, python-format
+msgid "Yellow"
+msgstr "Vàng"

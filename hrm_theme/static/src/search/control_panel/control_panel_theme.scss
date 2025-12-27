@@ -1,0 +1,16 @@
+.border-controller-green {
+  border-left: 10px;
+  padding: 5px;
+}
+
+.header-controller-theme {
+  @media (min-width: 768px) {
+    padding-left: 14em !important;
+    padding-right: 15em !important;
+  }
+}
+
+
+.o_control_panel {
+  background-color: #f8f9fa;
+}

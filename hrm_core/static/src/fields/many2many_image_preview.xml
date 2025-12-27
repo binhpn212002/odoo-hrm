@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="vitech_real_estate_core.Many2ManyImagePreview">
+       <div t-attf-class="oe_fileupload {{props.className ? props.className : ''}}" aria-atomic="true">
+
+            <div t-if="!props.readonly &amp;&amp; (!props.numberOfFiles or files.length &lt; props.numberOfFiles)"
+                 class="oe_add mb-2">
+                <FileInput
+                    acceptedFileExtensions="props.acceptedFileExtensions"
+                    multiUpload="true"
+                    onUpload.bind="onFileUploaded"
+                    resModel="props.record.resModel"
+                    resId="props.record.resId or 0"
+                    modelOwner="true"
+                >
+                    <button class="btn btn-secondary o_attach" data-tooltip="Attach">
+                        <span class="fa fa-upload" aria-label="Attach"/>
+                      Tải lên
+                    </button>
+                </FileInput>
+              <button t-if="state.hasCamera" class="btn btn-secondary o_attach ms-1" data-tooltip="Attach"
+                      t-on-click="(ev)=>onFileCamera(ev)">
+                        <span class="fa fa-camera" aria-label="Attach"/>
+                Máy ảnh
+                   </button>
+            </div>
+         <t t-set="file_list" t-value="files"/>
+
+         <div class=" d-flex flex-grow-1 flex-wrap mx-1 mb-1">
+           <t t-foreach="file_list" t-as="file" t-key="file.id">
+                   <t t-if="file.isImage" t-call="Many2ManyImagePreview.Image"/>
+                </t>
+
+        </div>
+         <div class=" d-flex flex-grow-1 flex-wrap mx-1">
+           <t t-foreach="file_list" t-as="file" t-key="file.id">
+                   <t t-if="!file.isImage" t-call="Many2ManyImagePreview.NoneImage"/>
+                </t>
+            </div>
+        </div>
+    </t>
+
+  <t t-name="Many2ManyImagePreview.Image">
+    <t t-set="editable" t-value="!props.readonly"/>
+    <div t-attf-class="#{ editable ? 'o_attachment_editable' : '' } #{upload ? 'o_attachment_uploading' : ''}"
+         t-att-title="file.name">
+
+                <div t-att-aria-label="file.filename"
+                     class="o-vitech-image-preview d-flex position-relative flex-shrink-0 mw-100 mb-1 me-1"
+                     t-att-title="file.name"
+                     tabindex="0"
+                     aria-label="View image"
+                     t-att-data-mimetype="file.mimetype"
+                     t-on-click="() => this.fileViewer.open(file, file_list)"
+                >
+                    <img
+                        class="img img-fluid my-0 mx-auto o-viewable"
+                        t-att-src="getImageUrl(file)"
+                        t-att-alt="file.name"
+                        t-attf-style="max-width: min(100%, {{ imagesWidth }}px); max-height: {{ imagesHeight }}px;"
+                    />
+                  <div
+                      class="position-absolute top-0 bottom-0 start-0 end-0 p-2 text-white opacity-0 opacity-100-hover d-flex align-items-end flax-wrap flex-column">
+                        <div t-if="!ui.isSmall &amp;&amp; !props.readonly"
+                             class="btn btn-sm btn-dark rounded opacity-75 opacity-100-hover"
+                             tabindex="0" aria-label="Remove" role="menuitem"
+                             t-on-click.stop="() => this.onClickUnlink(file)" title="Remove">
+                            <i class="fa fa-trash"/>
+                        </div>
+                    <div t-if="!ui.isSmall" class="btn btn-sm btn-dark rounded opacity-75 opacity-100-hover mt-auto"
+                         t-on-click.stop="() => this.onClickDownload(file)" title="Download">
+                            <i class="fa fa-download"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</t>
+  <t t-name="Many2ManyImagePreview.NoneImage">
+    <t t-set="editable" t-value="!props.readonly"/>
+    <div t-attf-class="#{ editable ? 'o_attachment_editable' : '' } #{upload ? 'o_attachment_uploading' : ''}"
+         t-att-title="file.name">
+               <div
+                   class="o-mail-AttachmentCard d-flex rounded mb-1 me-1 mw-100 overflow-auto"
+                   t-att-class="{
+                        'ms-1': isInChatWindowAndIsAlignedRight,
+                        'me-1': !isInChatWindowAndIsAlignedRight,
+                        'o-viewable': file.isViewable,
+                        'o-isUploading': file.uploading,
+                    }"
+                   t-attf-class="bg-300"
+                   t-att-title="file.name ? file.name : undefined" role="menu"
+                   t-att-aria-label="file.name"
+                   t-on-click="() => this.fileViewer.open(file, file_list)"
+               >
+                    <!-- o_image from mimetype.scss -->
+                 <t t-ref="nonImageMain">
+                        <div class="o_image flex-shrink-0 m-1" role="menuitem"
+                             aria-label="Preview" t-att-tabindex="-1" t-att-aria-disabled="false"
+                             t-att-data-mimetype="file.mimetype"/>
+                   <div class="overflow-auto d-flex justify-content-center flex-column px-1">
+                            <div t-if="file.name" class="text-truncate"
+                                 t-out=" file.name"/>
+                     <small t-if="file.extension" class="text-uppercase" t-esc="file.extension"/>
+                        </div>
+                    </t>
+                 <div class=" position-relative rounded-end overflow-hidden d-flex flex-column"
+                 >
+                   <button t-if="!props.readonly"
+                           class=" btn top-0 justify-content-center align-items-center d-flex w-100 h-100 rounded-0 border-0"
+                           t-attf-class="{{ 'bg-300' }}"
+                           t-on-click.stop="() => this.onClickUnlink(file)" title="Remove"
+                   >
+                            <i class="fa fa-trash" role="img" aria-label="Remove"/>
+                        </button>
+                   <!-- t-attf-class overridden in extensions -->
+                   <button
+                       class="btn d-flex justify-content-center align-items-center w-100 h-100 rounded-0"
+                       t-attf-class="bg-300"
+                       t-on-click.stop="() => this.onClickDownload(file)" title="Download"
+                   >
+                            <i class="fa fa-download" role="img" aria-label="Download"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+</t>
+
+</templates>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hrm_theme" model="ir.actions.client">
+            <field name="name">Home</field>
+            <field name="tag">hrm_theme.home_action</field>
+        </record>
+        <menuitem id="vitech_real_estate_theme_home_menu" name="Home"
+                  web_icon="hrm_theme,static/description/home.png"
+                  sequence="-1"
+                  action="vitech_real_estate_theme_home"/>
+    </data>
+</odoo>

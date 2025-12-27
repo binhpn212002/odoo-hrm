@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+  <t t-name="hrm_theme.SliderTemplate">
+        <div class="slider-container">
+            <div class="slides" t-att-style="'transform: translateX(-' + (state.currentSlide * 100) + '%)'">
+                <t t-foreach="slides" t-as="slide" t-key="slide.url">
+                    <div class="slide">
+                        <img t-att-src="slide.url" class="w-100 h-100" alt="Slide Image" style="object-fit: cover;" />
+<!--                        <div class="caption">-->
+<!--                            <t t-esc="slide.caption" />-->
+<!--                        </div>-->
+                    </div>
+                </t>
+            </div>
+            <button t-if="slides.length != 1" class="prev" t-on-click="prevSlide">&#10094;</button>
+            <button t-if="slides.length != 1" class="next" t-on-click="nextSlide">&#10095;</button>
+        </div>
+  </t>
+</templates>

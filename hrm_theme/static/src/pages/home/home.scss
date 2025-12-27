@@ -1,0 +1,36 @@
+#dashboard {
+  padding: 8px;
+}
+
+.vt_app_menu {
+  &_box {
+    border-radius: 8px;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  &_box:hover {
+    transform: scale(0.99);
+  }
+
+  &_iamge {
+    width: 50px;
+  }
+}
+
+.home-wrapper {
+  //max-height: 75vh;
+  overflow-y: scroll;
+}
+
+.home-wrapper::-webkit-scrollbar {
+  opacity: 1;
+}
+
+.gap-y-5 {
+  gap: 25px 0;
+}
+
+.home-wrapper::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+}

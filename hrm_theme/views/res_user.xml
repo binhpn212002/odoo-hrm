@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_users_form_simple_modif_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.simple.modif.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='preferences_page']/group[@name='signature']" position="before">
+                <group>
+                    <group>
+                        <field name="theme_id" options="{'no_create': False}" string="Theme"/>
+                    </group>
+                    <group colspan="2">
+                        <field name="primary_color" widget="color"/>
+                        <field name="secondary_color" widget="color"/>
+                        <field name="info_color" widget="color"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <template id="my_navbar_web_layout" inherit_id="web.layout">
+        <xpath expr="//head" position="inside">
+            <!-- PRIMARY COLOR  -->
+            <t t-set="primary"
+               t-value="request.env.user.theme_id and request.env.user.theme_id.primary_color or '#17ae92'"/>
+            <style>
+                .bg-primary, .bg-action, .text-bg-action, .mainop, .range-input {
+                background-color:
+                <t t-out="primary"/>
+                !important;
+                }
+                .btn-outline-primary:hover {
+                background-color: #fff !important;
+                }
+                .o_base_settings_view .o_form_renderer .o_setting_container .settings_tab .selected {
+                box-shadow: inset 2px 0 0
+                <t t-out="primary"/>
+                !important;
+                }
+                .badge.text-primary {
+                outline: 1px solid
+                <t t-out="primary"/>
+                !important;
+                }
+                .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
+                border-color:
+                <t t-out="primary"/>
+                !important;
+                }
+                .o_searchview:focus-within, .form-control:focus {
+                border-color:
+                <t t-out="primary"/>
+                !important;
+                }
+                .btn-primary {
+                background-color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                border: none;
+                }
+                .text-primary, .btn-outline-primary, .o_button_icon , .btn-link {
+                color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                }
+                .form-check-input:checked {
+                background-color:
+                <t t-out="primary"/>
+                !important;
+                border-color:
+                <t t-out="primary"/>
+                !important;
+                }
+                .header-card {
+                border-left: 10px solid
+                <t t-out="primary"/>
+                !important;
+                }
+                .o_searchview:focus-within + .o-dropdown .o_searchview_dropdown_toggler {
+                border-top-color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                border-right-color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                border-bottom-color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                }
+                .o-mail-MessagingMenu-header .btn-link{
+                background: #fff !important;
+                }
+                .btn-check:checked + .btn-outline-secondary,
+                .btn-check:active + .btn-outline-secondary,
+                .btn-outline-secondary:active, .btn-outline-secondary.active,
+                .show > .btn-outline-secondary.dropdown-toggle {
+                border-color:
+                <t t-out="primary"/>
+                !important;
+                }
+                .dropdown-border-primary {
+                border: 2px solid
+                <t t-out="primary"/>
+                !important;
+                border-radius: 20px;
+                padding: 8px;
+                color: #00000080;
+                }
+                .oe_topbar_name{
+                color:
+                <t t-if="primary == '#000000'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-elif="primary == '#FFFFFF'">
+                    <t t-out="'gray'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                }
+                .o_menu_systray i , .app_menu ,.fa-home {
+                color:
+                <t t-if="primary == '#000000'">
+                    <t t-out="'white'"/>
+                    !important;
+                </t>
+                <t t-elif="primary == '#FFFFFF'">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                }
+                .toggle_company .text-primary {
+                color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                <t t-elif="primary == '#000000'">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                }
+                .fa-square-o:before {
+                color:
+                <t t-if="primary == '#FFFFFF'">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                <t t-elif="primary == '#000000'">
+                    <t t-out="'black'"/>
+                    !important;
+                </t>
+                <t t-else="">
+                    <t t-out="primary"/>
+                    !important;
+                </t>
+                }
+                @media (max-width: 575.98px) {
+                .modal.o_technical_modal.o_modal_full .modal-dialog .modal-content .modal-header {
+                background:
+                <t t-out="primary"/>
+                !important;
+                }
+                }
+                .o_vitech_app_menu_bg {
+                background-color:
+                <t t-out="primary"/>
+                !important;
+                }
+                .text-bg-info {
+                    color: #FFFFFF !important;
+                    background-color: <t t-out="primary"/> !important;
+                }
+            </style>
+
+            <t t-set="menuitem_color" t-value="request.env.user.theme_id.menuitem_color"/>
+            <t t-if="menuitem_color">
+                <style>
+                    .vt_active {
+                    background-color:
+                    <t t-out="menuitem_color"/>
+                    !important;
+                    }
+                    .o_menu_sections > .dropdown-item:hover {
+                    background-color:
+                    <t t-out="menuitem_color"/>
+                    !important;
+                    color: white !important;
+                    }
+                </style>
+            </t>
+
+            <!--INFO COLOR-->
+            <t t-set="info_color" t-value="request.env.user.info_color"/>
+            <t t-if="info_color">
+                <style>
+                    .btn-info , .o-mail-MessagingMenu-counter {
+                    background-color:
+                    <t t-out="info_color"/>
+                    !important;
+                    }
+                </style>
+            </t>
+            <!--SECONDARY COLOR-->
+            <t t-set="secondary_color" t-value="request.env.user.secondary_color"/>
+            <t t-if="secondary_color">
+                <style>
+                    .o_vitech_navbar i {
+                        color:  <t t-out="secondary_color"/>  !important;
+                    }
+                </style>
+            </t>
+        </xpath>
+    </template>
+</odoo>

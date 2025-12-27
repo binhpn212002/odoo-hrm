@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+  <t t-name="hrm_theme.home">
+    <div class="h-100 overflow-y-auto overflow-x-hidden">
+      <Slider/>
+      <div id="dashboard" class="container m-auto d-flex flex-column justify-content-center py-4">
+        <div class="row">
+          <t t-foreach="this.state.menuApp" t-as="menu" t-key="menu.id" t-att-menu="'%s' % menu_index">
+            <t t-set="alignmentClass"
+               t-value="computesAlignmentClass(menu_index)"/>
+            <div t-on-click="()=>this.openApp(menu)"
+                 t-att-class="'vt_app_menu col-4 col-sm-4 col-md-2 col-lg-2 mb-4  text-center'">
+              <button class="btn p-0" style="min-width:90px;">
+                <img t-if="menu.webIconData" t-att-src="'data:image/png;base64,' + menu.webIconData" alt="App Icon" width="65"/>
+                <br/>
+                <span t-out="menu.name"></span>
+              </button>
+            </div>
+          </t>
+        </div>
+      </div>
+    </div>
+  </t>
+</templates>

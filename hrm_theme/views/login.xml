@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="login_custom" inherit_id="web.login" name="Login">
+        <xpath expr="t" position="replace">
+            <t t-call="hrm_theme.login_layout_custom">
+                <form role="form" t-attf-action="/web/login" method="post"
+                      onsubmit="this.action = '/web/login' + location.hash"
+                      class="login-form h-full d-flex   justify-content-center flex-column align-item-center">
+                    <div>
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <h2 class="txt-primary text-center mb-2">Đăng nhập</h2>
+                        <div class="mb-3" t-if="databases and len(databases) &gt; 1">
+                            <label for="db" class="col-form-label">Database</label>
+                            <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                                <input type="text" name="db" t-att-value="request.db" id="db"
+                                       t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
+                                       required="required" readonly="readonly"
+                                />
+                                <a role="button" href="/web/database/selector"
+                                   class="btn btn-secondary">
+                                    Select
+                                    <i class="fa fa-database" role="img" aria-label="Database"
+                                       title="Database"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 o_field_login">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input
+                                    t-attf-class="o_field_login_input"
+                                    type="text" placeholder="Email" name="login" t-att-value="login"
+                                    id="login"
+                                    required="required" autocomplete="username" autofocus="autofocus"
+                                    autocapitalize="off"/>
+                        </div>
+                        <div class="mb-3 o_field_login" id="password-box">
+                            <i class="fa-solid fa-lock"></i>
+                            <input
+                                    t-attf-class="o_field_login_input"
+                                    type="password" placeholder="Mật khẩu" name="password"
+                                    id="password"
+                                    required="required" autocomplete="current-password"
+                                    t-att-autofocus="'autofocus' if login else None"
+                                    maxlength="4096"/>
+                        </div>
+                    </div>
+
+<!--                    <p class="text-danger" t-if="error" role="alert">-->
+<!--                        <t t-esc="error"/>-->
+<!--                    </p>-->
+                    <p class="alert alert-success" t-if="message" role="status">
+                        <t t-esc="message"/>
+                    </p>
+
+                    <input type="hidden" name="redirect" t-att-value="redirect"/>
+                    <div class="mb-2">
+                        <div class="justify-content-between mt-2 d-flex small">
+                            <a class="o_link" t-if="signup_enabled">
+                                Quên mật khẩu
+                            </a>
+                            <a class="o_link" t-if="reset_password_enabled">
+                                Hiện mật khẩu
+                            </a>
+                        </div>
+                    </div>
+                    <button t-attf-class=" btn  o-btn-primary bg-primary p-3 text-white fw-bold mb-3" type="submit">
+                        Đăng nhập
+                    </button>
+                    <div class='text-center mb-3'>
+                        Bạn chưa có tài khoản?
+                        <strong>
+                            <a t-attf-href="/web/signup?{{ keep_query() }}">
+                                Đăng ký
+                            </a>
+                        </strong>
+                    </div>
+                    <div class="btn btn-danger p-3" t-if="error" role="alert">
+                        <t t-esc="error"/>
+                    </div>
+                </form>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

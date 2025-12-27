@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vitech_theme_default" model="vitech.theme">
+        <field name="name">Mặc định</field>
+        <field name="primary_color">#17AE92</field>
+         <field name="menuitem_color">#0B0D63</field>
+    </record>
+    <record id="vitech_theme_red" model="vitech.theme">
+        <field name="name">Chủ đề Đỏ</field>
+        <field name="primary_color">#D85959</field>
+        <field name="secondary_color">#FFDE00</field>
+        <field name="info_color">#006BFF</field>
+         <field name="menuitem_color">#D89959</field>
+        <field name="dropdown_item_menu">#FFFFFF</field>
+    </record>
+
+    <record id="vitech_theme_green" model="vitech.theme">
+        <field name="name">Chủ đề Xanh Lá</field>
+        <field name="primary_color">#9BEC00</field>
+        <field name="dropdown_item_menu">#CECECE</field>
+    </record>
+
+    <record id="vitech_theme_blue" model="vitech.theme">
+        <field name="name">Chủ đề Xanh Dương</field>
+        <field name="primary_color">#3A30E2</field>
+        <field name="menuitem_color">#A34484</field>
+        <field name="dropdown_item_menu">#FFFFFF</field>
+    </record>
+
+    <record id="vitech_theme_purple" model="vitech.theme">
+        <field name="name">Chủ đề Tím</field>
+        <field name="primary_color">#7A19CA</field>
+        <field name="menuitem_color">#CA19C1</field>
+        <field name="dropdown_item_menu">#FFFFFF</field>
+    </record>
+
+    <record id="vitech_theme_brown" model="vitech.theme">
+        <field name="name">Chủ đề Tím Nhạt</field>
+        <field name="primary_color">#AA4585</field>
+        <field name="dropdown_item_menu">#FFFFFF</field>
+        <field name="menuitem_color">#53aa45</field>
+    </record>
+
+    <record id="vitech_theme_black" model="vitech.theme">
+        <field name="name">Chủ đề Xanh nhạt</field>
+        <field name="primary_color">#434184</field>
+        <field name="dropdown_item_menu">#FFFFFF</field>
+    </record>
+
+</odoo>

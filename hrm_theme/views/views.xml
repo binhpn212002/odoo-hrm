@@ -1,0 +1,99 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="hrm_theme.list">
+            <field name="name">hrm_theme list</field>
+            <field name="model">vitech_real_estate_theme</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="tên"/>
+                    <field name="value" string=" asdasdadasdasdasd"/>
+                    <field name="value2"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="test_theme_view_tree" model="ir.ui.view">
+            <field name="name">test_theme_view_tree</field>
+            <field name="model">model.test.theme</field>
+            <field name="arch" type="xml">
+                <tree string="test_theme_tree">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="text_selection"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="test_theme_view_form" model="ir.ui.view">
+            <field name="name">test_theme_view_form</field>
+            <field name="model">model.test.theme</field>
+            <field name="arch" type="xml">
+                <form string="_form" js_class="form_theme">
+                    <sheet>
+                        <group>
+                            <group>
+                                <div>
+                                    <label for="id" string="Id"/>
+                                    <field name="id"/>
+                                </div>
+                                <div>
+                                    <label for="name" string="Tên"/>
+                                    <field name="name" class="border rounded-pill"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="text_selection"/>
+                            </group>
+                        </group>
+                        <div class="oe_chatter">
+                          <field name="message_ids" options="{'hide_attachment': True}"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="test_theme_view_action" model="ir.actions.act_window">
+            <field name="name">test_theme</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.test.theme</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="hrm_theme.action_window">
+            <field name="name">vitech_real_estate_theme window</field>
+            <field name="res_model">vitech_real_estate_theme</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- server action to the one above -->
+        <record model="ir.actions.server" id="hrm_theme.action_server">
+            <field name="name">vitech_real_estate_theme server</field>
+            <field name="model_id" ref="model_vitech_real_estate_theme"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = {
+                "type": "ir.actions.act_window",
+                "view_mode": "tree,form",
+                "res_model": model._name,
+                }
+            </field>
+        </record>
+
+        <!-- Top menu item -->
+<!--        <menuitem name="vitech_real_estate_theme" id="vitech_real_estate_theme.menu_root"/>-->
+<!--        &lt;!&ndash; menu categories &ndash;&gt;-->
+<!--        <menuitem name="Menu 1" id="vitech_real_estate_theme.menu_1" parent="vitech_real_estate_theme.menu_root"/>-->
+<!--        <menuitem name="Menu 2" id="vitech_real_estate_theme.menu_2" parent="vitech_real_estate_theme.menu_root"/>-->
+<!--        &lt;!&ndash; actions &ndash;&gt;-->
+<!--        <menuitem name="List" id="vitech_real_estate_theme.menu_1_list" parent="vitech_real_estate_theme.menu_1"-->
+<!--                  action="vitech_real_estate_theme.action_window"/>-->
+<!--        <menuitem name="Server to list" id="vitech_real_estate_theme" parent="vitech_real_estate_theme.menu_2"-->
+<!--                  action="test_theme_view_action"/>-->
+    </data>
+</odoo>

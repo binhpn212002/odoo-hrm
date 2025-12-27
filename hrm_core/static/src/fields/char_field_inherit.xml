@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="custom_form_field_char" inherit_id="website.form_field_char" t-inherit-mode="extension">
+        <xpath expr="//t[@t-call='website.form_field']/input" position="attributes">
+            <attribute name="class">form-control s_website_form_input custom-class</attribute>
+        </xpath>
+    </t>
+</templates>

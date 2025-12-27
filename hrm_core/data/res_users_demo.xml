@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--        <record id="partner_demo" model="res.partner">-->
+<!--            <field name="name">Marc Demo</field>-->
+<!--            <field name="company_id" ref="main_company"/>-->
+<!--            <field name="company_name">YourCompany</field>-->
+<!--            <field name="street">3575  Buena Vista Avenue</field>-->
+<!--            <field name="city">Eugene</field>-->
+<!--            <field name="state_id"  model="res.country.state" search="[('code','=','OR')]"/>-->
+<!--            <field name="zip">97401</field>-->
+<!--            <field name="country_id" ref="us"/>-->
+<!--            <field name="tz">Europe/Brussels</field>-->
+<!--            <field name="email">mark.brown23@example.com</field>-->
+<!--            <field name="phone">(441)-695-2334</field>-->
+<!--        </record>-->
+
+        <record id="user_demo_1" model="res.users">
+            <field name="name">Đào Minh Hà(sale)</field>
+            <field name="login">minhhasale@gmail.com</field>
+            <field name="email">minhhasale@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale')])]"/>
+        </record>
+
+        <record id="user_demo_8" model="res.users">
+            <field name="name">Đoàn Thế Hoan(sale)</field>
+            <field name="login">thehoansale@gmail.com</field>
+            <field name="email">thehoansale@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale')])]"/>
+        </record>
+
+        <record id="user_demo_9" model="res.users">
+            <field name="name">Nguyễn Đình Thái(sale)</field>
+            <field name="login">dinhthaisale@gmail.com</field>
+            <field name="email">dinhthaisale@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale')])]"/>
+        </record>
+
+        <record id="user_demo_13" model="res.users">
+            <field name="name">Nguyễn Mạnh Hưng(sale)</field>
+            <field name="login">manhhungsale@gmail.com</field>
+            <field name="email">manhhungsale@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale')])]"/>
+        </record>
+
+        <record id="user_demo_14" model="res.users">
+            <field name="name">Chu Thế Vinh(sale)</field>
+            <field name="login">thevinhsale@gmail.com</field>
+            <field name="email">thevinhsale@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale')])]"/>
+        </record>
+
+
+        <record id="user_demo_2" model="res.users">
+            <field name="name">Đoàn Thế Vinh(MKT)</field>
+            <field name="login">thevinhmkt@gmail.com</field>
+            <field name="email">thevinhmkt@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_marketing')])]"/>
+        </record>
+
+        <record id="user_demo_15" model="res.users">
+            <field name="name">Đoàn Thế Hải(MKT)</field>
+            <field name="login">thehaimkt@gmail.com</field>
+            <field name="email">thehaimkt@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_marketing')])]"/>
+        </record>
+
+        <record id="user_demo_3" model="res.users">
+            <field name="name">Nguyễn Trọng Bình(GĐS)</field>
+            <field name="login">trongbinhgds@gmail.com</field>
+            <field name="email">trongbinhgds@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale_director')])]"/>
+        </record>
+
+        <record id="user_demo_16" model="res.users">
+            <field name="name">Lê Hữu Mạnh(GĐS)</field>
+            <field name="login">huumanhgds@gmail.com</field>
+            <field name="email">huumanhgds@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale_director')])]"/>
+        </record>
+
+        <record id="user_demo_10" model="res.users">
+            <field name="name">Nguyễn Hương Quỳnh(GĐS)</field>
+            <field name="login">huongquynhgds@gmail.com</field>
+            <field name="email">huongquynhgds@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale_director')])]"/>
+        </record>
+
+        <record id="user_demo_11" model="res.users">
+            <field name="name">Nguyễn Thi Ly(GĐS)</field>
+            <field name="login">lynguyengds@gmail.com</field>
+            <field name="email">lynguyengds@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_sale_director')])]"/>
+        </record>
+
+        <record id="user_demo_4" model="res.users">
+            <field name="name">Lê Minh Hiếu(admin)</field>
+            <field name="login">minhhieuadmin@gmail.com</field>
+            <field name="email">minhhieuadmin@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_admin')])]"/>
+        </record>
+
+        <record id="user_demo_12" model="res.users">
+            <field name="name">Lê Huy Khánh(admin)</field>
+            <field name="login">huykhanhadmin@gmail.com</field>
+            <field name="email">huykhanhadmin@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_admin')])]"/>
+        </record>
+
+        <record id="user_demo_5" model="res.users">
+            <field name="name">Nguyễn Đức Khánh(GĐ)</field>
+            <field name="login">duckhanhgd@gmail.com</field>
+            <field name="email">duckhanhgd@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_2'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_branch_general')])]"/>
+        </record>
+
+        <record id="user_demo_6" model="res.users">
+            <field name="name">Đào Gia Bảo(TGĐ)</field>
+            <field name="login">giabaotgd@gmail.com</field>
+            <field name="email">giabaotgd@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_general')])]"/>
+        </record>
+
+        <record id="user_demo_7" model="res.users">
+            <field name="name">Nguyễn Văn Tuấn(SPAdmin)</field>
+            <field name="login">tuannguyenspadmin@gmail.com</field>
+            <field name="email">tuannguyenspadmin@gmail.com</field>
+            <field name="company_ids" eval="[Command.link(ref('vitech_real_estate_core.company_1'))]"/>
+            <field name="company_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user'),ref('vitech_real_estate_core.real_estate_group_super_admin')])]"/>
+        </record>
+
+        <function model="res.company" name="write">
+            <value eval="[ref('company_1')]"/>
+            <value eval="{'director_id': ref('user_demo_6')}"/>
+        </function>
+
+        <function model="res.company" name="write">
+            <value eval="[ref('company_2')]"/>
+            <value eval="{'director_id': ref('user_demo_5')}"/>
+        </function>
+
+    </data>
+</odoo>

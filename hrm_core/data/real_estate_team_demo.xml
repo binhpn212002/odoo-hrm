@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="real_estate_team_1" model="vitech.real.estate.team">
+            <field name="name">Team Sale 1</field>
+            <field name="branch_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="leader_id" ref="vitech_real_estate_core.user_demo_3"/>
+            <field name="member_ids" eval="[(6, 0, [ref('vitech_real_estate_core.user_demo_1'), ref('vitech_real_estate_core.user_demo_3')])]"/>
+        </record>
+
+        <record id="real_estate_team_2" model="vitech.real.estate.team">
+            <field name="name">Team Sale 2</field>
+            <field name="branch_id" ref="vitech_real_estate_core.company_1"/>
+            <field name="leader_id" ref="vitech_real_estate_core.user_demo_10"/>
+            <field name="member_ids" eval="[(6, 0, [ref('vitech_real_estate_core.user_demo_10'), ref('vitech_real_estate_core.user_demo_9')])]"/>
+        </record>
+
+        <record id="real_estate_team_3" model="vitech.real.estate.team">
+            <field name="name">Team Sale 3</field>
+            <field name="branch_id" ref="vitech_real_estate_core.company_2"/>
+            <field name="leader_id" ref="vitech_real_estate_core.user_demo_16"/>
+            <field name="member_ids" eval="[(6, 0, [ref('vitech_real_estate_core.user_demo_16'), ref('vitech_real_estate_core.user_demo_14')])]"/>
+        </record>
+    </data>
+</odoo>

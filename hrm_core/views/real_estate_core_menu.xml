@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+      <menuitem id="vitech_real_estate_core_root" web_icon="vitech_real_estate_core,static/description/settings.png" name="Quản lý" groups="vitech_real_estate_core.real_estate_group_general" sequence="99"/>
+      <menuitem name="Teams" id="vitech_real_estate_team_menu" parent="vitech_real_estate_core_root"
+              action="action_real_estate_team"/>
+      <menuitem action="base.action_res_users" id="menu_action_res_users" parent="vitech_real_estate_core_root" sequence="0"/>
+      <menuitem action="base.action_res_company_form" id="menu_action_res_company" parent="vitech_real_estate_core_root" sequence="1"/>
+    <!-- Top menu item -->
+
+    <!--    <menuitem name="Dự án BĐS" id="vitech_bds_project.menu_root"/>-->
+    <!-- menu categories -->
+
+    <!--    <menuitem name="Dự án" id="vitech_bds_project.project" parent="vitech_bds_project.menu_root"-->
+    <!--              action="action_real_estate_project"/>-->
+    <!--    <menuitem name="Unit" id="vitech_bds_project.unit" parent="vitech_bds_project.menu_root"-->
+    <!--              action="action_real_estate_unit"/>-->
+    <!--    <menuitem name="Lock căn" id="vitech_bds_project.locking" parent="vitech_bds_project.menu_root"-->
+    <!--              action="action_real_estate_locking"/>-->
+      <menuitem name="Teams" id="vitech_real_estate_menu_team" parent="base.menu_users"
+              action="action_real_estate_team"/>
+
+      <menuitem name="Settings"
+          id="menu_administration"
+          web_icon="base,static/description/settings.png"
+          sequence="550"
+          groups="vitech_real_estate_core.real_estate_group_super_admin"/>
+
+<!--      <menuitem id="menu_management" name="Apps" sequence="500" web_icon="base,static/description/modules.png" groups="vitech_real_estate_core.real_estate_group_super_admin"/>-->
+        <record id="base.menu_management" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('vitech_real_estate_core.real_estate_group_super_admin')])]"/>
+        </record>
+  </data>
+</odoo>

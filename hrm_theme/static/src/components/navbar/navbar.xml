@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="hrm_theme.navbar"
+    >
+        <header>
+            <nav class="d-flex bg-primary justify-content-between align-items-center px-2 o_vitech_navbar position-relative py-2"
+                 style="height:70px">
+            <VTAppMenu/>
+              <div class="d-none d-lg-flex justify-content-center o_vitech_navbar_sections ">
+                <t t-if="currentAppSections.length" t-call="hrm_theme.NavBar.SectionsMenu">
+                  <t t-set="sections" t-value="currentAppSections"/>
+                </t>
+            </div>
+              <div class="o_menu_systray d-flex flex-shrink-0 ms-auto" role="menu">
+                  <t t-foreach="systrayItems" t-as="item" t-key="item.key">
+                    <div t-att-data-index="item.index"/>
+                    <ErrorHandler onError="error => this.handleItemError(error, item)">
+                        <t t-component="item.Component" t-props="item.props"/>
+                    </ErrorHandler>
+                  </t>
+                </div>
+            </nav>
+          <div t-if="state.vtMenuService.state.isSession"
+               class="d-flex justify-content-center o_vitech_navbar_sections ">
+                    <t t-if="currentAppSections.length" t-call="hrm_theme.NavBar.SectionsMenu.Mobile">
+                      <t t-set="sections" t-value="currentAppSections"/>
+                    </t>
+                </div>
+        </header>
+    </t>
+
+  <t t-name="hrm_theme.NavBar.SectionsMenu"
+     t-inherit="web.NavBar.SectionsMenu">
+       <xpath expr="//DropdownItem" position="attributes">
+          <attribute name="class" position="add" separator=" ">(this.state.vtMenuService.state.actionId == section.actionID? ' vt_active py-2 px-3':'py-2 px-3')</attribute>
+       </xpath>
+    <xpath expr="//MenuDropdown" position="replace">
+        <t t-set="vet" t-value="section.id"></t>
+        <MenuDropdown hotkey="hotkey"
+                      xmlid="section.xmlid"
+                      class="'p-0'">
+           <t t-set-slot="toggler">
+                <button t-attf-class=" #{vet == this.state.vtMenuService.state.vetId ? 'vt_active py-2 px-3 vt-dropdown' : 'py-2 px-3 vt-dropdown'}"
+                        t-esc="section.name"
+                        t-att-data-section="section.id"/>
+           </t>
+            <t t-call="hrm_theme.NavBar.SectionsMenu.Dropdown.MenuSlot">
+              <t t-set="items" t-value="section.childrenTree"/>
+                <t t-set="decalage" t-value="20"/>
+            </t>
+        </MenuDropdown>
+       </xpath>
+    </t>
+  <t t-name="hrm_theme.NavBar.SectionsMenu.Mobile"
+     t-inherit="web.NavBar.SectionsMenu">
+       <xpath expr="//div[contains(@class, 'o_menu_sections')]" position="attributes">
+          <attribute name="class" remove="d-none d-md-flex" add="d-flex d-xxl-none  o_menu_sections-mobile"
+                     separator=" "></attribute>
+       </xpath>
+    <xpath expr="//DropdownItem" position="attributes">
+          <attribute name="class" position="add" separator=" ">(this.state.vtMenuService.state.actionId == section.actionID? ' vt_active py-2 px-3':'py-2 px-3')</attribute>
+       </xpath>
+    <xpath expr="//MenuDropdown" position="replace">
+            <t t-set="vet" t-value="section.id"></t>
+      <MenuDropdown
+              hotkey="hotkey"
+              xmlid="section.xmlid"
+              class="`${vet == this.state.vtMenuService.state.vetId ? 'vt_active  py-2 px-3' : 'py-2 px-3'}`">
+            <t t-set-slot="toggler">
+              <span t-esc="section.name" class="vt-dropdown" t-att-data-section="section.id"/>
+            </t>
+        <t t-call="hrm_theme.NavBar.SectionsMenu.Dropdown.MenuSlot">
+              <t t-set="items" t-value="section.childrenTree"/>
+          <t t-set="decalage" t-value="20"/>
+            </t>
+          </MenuDropdown>
+       </xpath>
+    </t>
+
+  <t t-name="hrm_theme.NavBar.SectionsMenu.Dropdown.MenuSlot"
+     t-inherit="web.NavBar.SectionsMenu.Dropdown.MenuSlot">
+        <xpath expr="//DropdownItem" position="replace">
+             <DropdownItem t-if="!item.childrenTree.length"
+                           href="getMenuItemHref(item)"
+                           class="{
+                              'dropdown-item': true,
+                              o_dropdown_menu_group_entry: decalage gt 20
+                            }"
+                           style="style"
+                           t-esc="item.name"
+                           dataset="{ menuXmlid: item.xmlid, section: item.id }"
+                           onSelected="() => this.onNavBarDropdownItemSelection(item,vet)"/>
+       </xpath>
+        <xpath expr="//t[@t-call='web.NavBar.SectionsMenu.Dropdown.MenuSlot']" position="replace">
+            <t t-call="hrm_theme.NavBar.SectionsMenu.Dropdown.MenuSlot">
+            <t t-set="items" t-value="item.childrenTree"/>
+              <t t-set="decalage" t-value="decalage + 12"/>
+            </t>
+       </xpath>
+    </t>
+
+  <t t-name="hrm_theme.web.BurgerMenu" t-inherit-mode="extension"
+     t-inherit="web.BurgerMenu">
+        <xpath expr="//i[contains(@class, 'oi-panel-right')]" position="replace">
+             <img class="rounded-circle"
+                  height="40"
+                  width="40"
+                  t-att-src="'/web/image?model=res.users&amp;field=avatar_128&amp;id=' + user.userId" alt="User"/>
+        </xpath>
+        <xpath expr="//button[contains(@class, 'o_mobile_menu_toggle ')]" position="attributes">
+            <attribute name="class" position="add"
+                       separator=" ">o_mobile_menu_toggle o-no-caret d-md-none border-0 pe-3</attribute>
+       </xpath>
+    </t>
+
+    <t t-inherit="web.UserMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//small[hasclass('oe_topbar_name')]" position="replace">
+            <div class="oe_topbar_name"/>
+        </xpath>
+    </t>
+</templates>

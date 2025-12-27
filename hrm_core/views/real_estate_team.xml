@@ -1,0 +1,94 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="vitech_real_estate_team_tree">
+      <field name="name">vitech_real_estate_team_list</field>
+      <field name="model">vitech.real.estate.team</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="leader_id"/>
+          <field name="branch_id"/>
+
+        </tree>
+      </field>
+    </record>
+    <record id="view_real_estate_team_form" model="ir.ui.view">
+      <field name="name">view_real_estate_team_form</field>
+      <field name="model">vitech.real.estate.team</field>
+      <field name="priority" eval="5"/>
+      <field name="arch" type="xml">
+        <form>
+
+          <sheet>
+            <group>
+              <field name="name" class="border p-2 rounded-3"/>
+              <field name="leader_id" class="border p-2 rounded-3" widget="many2one_avatar_user" />
+              <field name="branch_id" class="border p-2 rounded-3"/>
+            </group>
+            <notebook>
+              <page string="Members" name="members_users">
+                <field name="calc_member_ids" mode="kanban" class="w-100"
+                       context="{
+                                    'kanban_view_ref': 'base.view_res_users_kanban',
+                                    'form_view_ref': 'base.view_users_form',
+                                    'tree_view_ref': 'base.view_users_tree',
+                                    'default_team_id': active_id,
+                                }">
+                  <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="avatar_128"/>
+                    <templates>
+                      <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                          <div class="o_kanban_card_content d-flex">
+                            <div>
+                              <img t-att-src="kanban_image('res.users', 'avatar_128', record.id.raw_value)"
+                                   class="o_kanban_image o_image_64_cover" alt="Avatar"/>
+                            </div>
+                            <div class="oe_kanban_details d-flex flex-column ms-3">
+
+                              <strong class="o_kanban_record_title oe_partner_heading">
+                                <field name="name"/>
+                              </strong>
+                              <div class="d-flex align-items-baseline text-break">
+                                <i class="fa fa-envelope me-1" role="img" aria-label="Email" title="Email"/>
+                                <field name="email"/>
+                              </div>
+                              <button name="remove_team" type="object" string="Remove"/>
+                            </div>
+                          </div>
+                        </div>
+                      </t>
+                    </templates>
+                    <button name="remove_team" type="object" string="Remove"/>
+                  </kanban>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record id="action_real_estate_team" model="ir.actions.act_window">
+      <field name="name">Teams</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">vitech.real.estate.team</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Tạo mới một team mới
+        </p>
+        <p>
+          Odoo giúp bạn dễ dàng theo dõi mọi hoạt động liên quan đến các team.
+        </p>
+      </field>
+    </record>
+
+  </data>
+</odoo>

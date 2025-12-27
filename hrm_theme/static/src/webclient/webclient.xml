@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="hrm_theme.webClient"
+       t-inherit="web.WebClient"
+       t-inherit-mode="extension"
+    >
+        <xpath expr="//NavBar" position="replace">
+            <VTNavbar/>
+        </xpath>
+        <xpath expr="//MainComponentsContainer" position="before">
+            <VTAction/>
+        </xpath>
+        <xpath expr="." position="inside">
+                 <link
+                  rel="stylesheet"
+                  type="text/css"
+                  href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+                />
+            <div class="modal fade" id="remove_account" tabindex="-1" aria-labelledby="remove_account_label"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="remove_account_label">Xóa tài khoản</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                    <div class="modal-body">
+                     <form id="remove_user_form">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Nhập mật khẩu</label>
+                            <input type="password" class="form-control" id="password" placeholder="Mật khẩu"/>
+                        </div>
+                         <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Đóng</button>
+                             <button type="submit" class="btn btn-primary">Xác nhận</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script
+              type="text/javascript"
+              src="https://cdn.jsdelivr.net/npm/toastify-js"
+            ></script>
+            <script>
+                $(document).ready(function () {
+                    $('#remove_account').on('submit', function (event) {
+                        event.preventDefault();
+                        const password = $('#password').val();
+                    if (!password) {
+                        alert('Vui lòng nhập mật khẩu!');
+                        return;
+                    }
+
+                    $.ajax({
+                    url: '/api/remove/user',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                            params:{
+                                password
+                            }
+                    }),
+                    success: function(response) {
+                        if (response.result.code === 200) {
+                             window.location.href  = "/web/session/logout"
+                        } else {
+                            Toastify({
+                              text: response.result.message,
+                              position:"center",
+                              className: "info",
+                              style: {
+                                background: "red",
+                              },
+                            }).showToast();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again.');
+                    }
+                    });
+                    });
+                });
+            </script>
+        </xpath>
+    </t>
+
+    <t t-name="vitech.web.SettingsFormView" t-inherit="web.SettingsFormView" t-inherit-mode="primary">
+        <xpath expr="//Layout/t[@t-set-slot='layout-actions']" position="replace">
+            <t t-set-slot="layout-actions">
+                <div class="o_cp_searchview  d-flex w-100 w-md-75" role="search">
+                    <div class="o_searchview form-control d-flex align-items-center py-1" role="search"
+                         aria-autocomplete="list">
+                        <i class="o_searchview_icon oi oi-search me-2" role="img" aria-label="Search..."
+                           title="Search..."/>
+                        <div class="o_searchview_input_container d-flex flex-grow-1 flex-wrap gap-1">
+                            <input type="text" class="o_searchview_input o_input flex-grow-1 w-auto border-0"
+                                   accesskey="Q" placeholder="Search..." role="searchbox" t-model="searchState.value"
+                                   t-ref="autofocus"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </t>
+
+
+    <t t-name="vitech.web.DocumentationLink" t-inherit="web.DocumentationLink" t-inherit-mode="extension">
+            <xpath expr="//a[contains(@class, 'o_doc_link')]" position="attributes">
+                <attribute name="class" add="d-none" separator=" "/>
+            </xpath>
+      </t>
+
+    <t t-name="vitech.web.StatusBarButtons" t-inherit="web.StatusBarButtons" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'o_statusbar_buttons')]" position="replace">
+            <div class="o_statusbar_buttons d-flex align-items-center align-content-around flex-wrap gap-1">
+                <t t-set="slots" t-value="visibleSlotNames"/>
+                <t t-foreach="slots" t-as="slot" t-key="slot">
+                    <t t-slot="{{ slot }}"/>
+                </t>
+            </div>
+        </xpath>
+    </t>
+
+    <t t-name="vitech.web.Layout" t-inherit="web.Layout" t-inherit-mode="extension">
+         <xpath expr="//div[contains(@class, 'o_content')]" position="attributes">
+                <attribute name="class" add="px-2" separator=" "></attribute>
+        </xpath>
+    </t>
+
+</templates>

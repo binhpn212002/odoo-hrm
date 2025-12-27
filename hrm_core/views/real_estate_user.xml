@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="vitech_real_estate_user_tree">
+      <field name="name">vitech_real_estate_user_list</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="team_id"/>
+          <field name="branch_member_id"/>
+        </xpath>
+      </field>
+    </record>
+    <record id="view_real_estate_user_form" model="ir.ui.view">
+      <field name="name">view_real_estate_user_form</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form"/>
+      <field name="priority" eval="5"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//form/sheet/div/field[@name='email']" position="before">
+          <label for="team_id" string="Team"/>
+          <h2>
+            <field name="team_id" readonly="1"/>
+          </h2>
+          <label for="branch_member_id" string="Chi nhánh"/>
+          <h2>
+            <field name="branch_member_id" readonly="1"/>
+          </h2>
+        </xpath>
+        <xpath expr="//field[@name='company_id']" position="attributes">
+          <attribute name="domain">[('id','in',company_ids)]</attribute>
+        </xpath>
+
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <!--    <record id="action_real_estate_user" model="ir.actions.act_window">-->
+    <!--      <field name="name">Unit</field>-->
+    <!--      <field name="type">ir.actions.act_window</field>-->
+    <!--      <field name="res_model">vitech.real.estate.user</field>-->
+    <!--      <field name="domain">[]</field>-->
+    <!--      <field name="view_mode">tree,form</field>-->
+    <!--      <field name="help" type="html">-->
+    <!--        <p class="o_view_nocontent_smiling_face">-->
+    <!--          Tạo mới một user mới-->
+    <!--        </p>-->
+    <!--        <p>-->
+    <!--          Odoo giúp bạn dễ dàng theo dõi mọi hoạt động liên quan đến các user.-->
+    <!--        </p>-->
+    <!--      </field>-->
+    <!--    </record>-->
+
+  </data>
+</odoo>

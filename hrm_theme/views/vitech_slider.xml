@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vitech_slider_form_view" model="ir.ui.view">
+            <field name="name">vitech.slider.form</field>
+            <field name="model">vitech.slider</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" class="border p-2 rounded-3"/>
+                            <field name="image" class="border p-2 rounded-3"/>
+                            <field name="description" class="border p-2 rounded-3"/>
+                            <field name="sequence" class="border p-2 rounded-3"/>
+                            <field name="active"/>
+                            <field name="company_id" class="border p-2 rounded-3" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vitech_slider_tree_view" model="ir.ui.view">
+            <field name="name">vitech.slider.tree</field>
+            <field name="model">vitech.slider</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="active"/>
+                    <field name="company_id" class="column-mobile-hidden"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="vitech.slider_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">vitech.slider.search</field>-->
+        <!--            <field name="model">vitech.slider</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]" context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--               </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="vitech_slider_act_window" model="ir.actions.act_window">
+            <field name="name">Slider MKT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vitech.slider</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="domain">[('company_id', '=', user.company_id.id)]</field>-->
+        </record>
+
+        <menuitem name="Slider MKT" id="vitech_slider_menu" parent="base.menu_users" action="vitech_slider_act_window"/>
+    </data>
+</odoo>

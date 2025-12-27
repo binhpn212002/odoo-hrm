@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <t t-name="hrm_theme.SearchBar" t-inherit="web.SearchBar" t-inherit-mode="extension">
+    <xpath expr="//div[@aria-autocomplete='list']" position="attributes">
+      <attribute name="class" add="rounded-start-pill" separator=" "/>
+    </xpath>
+    <xpath expr="//div[@t-ref='root']" position="attributes">
+      <attribute name="class" add="p-search-bar" separator=" "/>
+    </xpath>
+    <xpath expr="//div[hasclass('p-search-bar')]" position="attributes">
+      <attribute name="class" remove="p-search-bar" separator=" "/>
+    </xpath>
+  </t>
+</templates>

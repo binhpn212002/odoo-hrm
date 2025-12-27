@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="auth_signup_inherit" inherit_id="auth_signup.signup" name="Website Login Layout" priority="20">
+            <xpath expr="//t" position="replace">
+                <t t-call="hrm_theme.login_layout_custom">
+                    <form class="login-form h-full d-flex   justify-content-center flex-column align-item-center"
+                          role="form" method="post" t-if="not message">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div>
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <h2 class="txt-primary text-center">Đăng ký</h2>
+                            <div class="mb-3" t-if="databases and len(databases) &gt; 1">
+                                <label for="db" class="col-form-label">Database</label>
+                                <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                                    <input type="text" name="db" t-att-value="request.db" id="db"
+                                           t-attf-class="form-control #{'form-control-sm' if form_small else ''}"
+                                           required="required" readonly="readonly"/>
+                                    <a role="button" href="/web/database/selector"
+                                       class="btn btn-secondary">
+                                        Select
+                                        <i class="fa fa-database" role="img" aria-label="Database"
+                                           title="Database"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="mb-3 o_field_login ">
+                                <i class="fa-regular fa-envelope"></i>
+                                <input t-attf-class="o_field_login_input"
+                                       type="text" placeholder="Email" name="login" t-att-value="login"
+                                       id="login"
+                                       required="required" autocomplete="username" autofocus="autofocus"
+                                       autocapitalize="off"/>
+                            </div>
+                            <div class="mb-3 o_field_login">
+                                <i class="fa-regular fa-user"></i>
+                                <input t-attf-class="o_field_login_input"
+                                       type="text" placeholder="Tên hiển thị" name="name" t-att-value="name"
+                                       id="name"
+                                       required="required" autocomplete="name" autofocus="autofocus"
+                                       autocapitalize="off"/>
+                            </div>
+                            <div class="mb-3 o_field_login" id="password-box">
+                                <i class="fa-solid fa-lock"></i>
+                                <input t-attf-class="o_field_login_input"
+                                       type="password" placeholder="Mật khẩu" name="password"
+                                       id="password"
+                                       required="required" autocomplete="current-password"
+                                       t-att-autofocus="'autofocus' if login else None"
+                                       maxlength="4096"/>
+                            </div>
+                            <div class="mb-3 o_field_login" id="password-box">
+                                <i class="fa-solid fa-lock"></i>
+                                <input t-attf-class="o_field_login_input"
+                                       type="password" placeholder="Xác nhận mật khẩu" name="confirm_password"
+                                       id="confirm_password"
+                                       required="required" autocomplete="current-password"
+                                       t-att-autofocus="'autofocus' if login else None"
+                                       maxlength="4096"/>
+                            </div>
+                        </div>
+
+                        <p class="alert alert-danger" t-if="error" role="alert">
+                            <t t-esc="error"/>
+                        </p>
+                        <input type="hidden" name="redirect" t-att-value="redirect"/>
+                        <input type="hidden" name="token" t-att-value="token"/>
+                        <div class="text-center oe_login_buttons d-grid pt-3">
+                            <button type="submit" class=" btn bg-danger text-white   p-3 fw-bold mb-3">Đăng ký
+                            </button>
+                            <a t-attf-href="/web/login?{{ keep_query() }}" class=" link" role="button">
+                                Bạn đã có tài khoản rồi?
+                            </a>
+                        </div>
+                    </form>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

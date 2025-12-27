@@ -1,0 +1,31 @@
+<odoo>
+
+
+    <data>
+
+
+
+
+
+        <record id="group_user_maketing" model="res.groups">
+            <field name="name">Maketing</field>
+            <field name="category_id" ref="base.group_sanitize_override"/>
+        </record>
+
+        <!-- Group for User B -->
+        <record id="group_user_sale_director" model="res.groups">
+            <field name="name">Director Sale</field>
+            <field name="category_id" ref="base.group_sanitize_override"/>
+        </record>
+
+        <!-- Group for User C -->
+        <record id="group_user_sale" model="res.groups">
+            <field name="name">Sales</field>
+            <field name="category_id" ref="base.group_sanitize_override"/>
+        </record>
+
+
+
+
+    </data>
+</odoo>

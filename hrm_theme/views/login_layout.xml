@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="login_layout_custom" inherit_id="web.login_layout" name="Login Layout">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/web/static/lib/bootstrap/dist/css/bootstrap.css"/>
+            <link rel="stylesheet" href="/hrm_theme/static/src/css/login.css"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+                  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+                  crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        </xpath>
+        <xpath expr="//div[hasclass('container','py-5')]" position="replace">
+            <div class="d-flex o_login_page " style="height:100vh">
+                <div class="container d-flex justify-content-center ">
+                    <t t-out="0"></t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

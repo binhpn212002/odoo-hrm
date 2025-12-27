@@ -1,0 +1,130 @@
+$vt_app_menu_color: #234f68;
+$vt_white: #fff;
+$vt_menu_hover_bg: #099cf1;
+.app_menu {
+  font-size: 28px;
+}
+
+.o_vitech_app_menu {
+  &_data {
+    z-index: 10;
+    border-radius: 16px 16px 16px 0;
+    width: 321px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      border-radius: 20px;
+      border-bottom-left-radius: 0px;
+    }
+
+    &_wrap {
+      max-height: 80vh;
+      overflow-y: scroll;
+      position: relative;
+      z-index: 11;
+
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #a8a8a8;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    }
+
+
+    background-color: $vt_app_menu_color;
+    -moz-border-radius-bottomleft: 0;
+
+
+    &_item > a {
+      color: $vt_white !important;
+      border-radius: 10px;
+    }
+
+    &_item:hover {
+      background-color: $vt_menu_hover_bg;
+      border-top-left-radius: 20px; /* Bo góc trên bên trái */
+      border-bottom-left-radius: 20px; /* Bo góc dưới bên trái */
+    }
+  }
+}
+
+.o_hotline:hover {
+  color: #ffffff; /* Thay #ff0000 bằng màu mong muốn */
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .o_vitech_app_menu {
+    &_data {
+      z-index: 10;
+      top: 0;
+      left: 0;
+      border-radius: 0px;
+      height: 100vh;
+      width: 100vw;
+      background-color: $vt_app_menu_color;
+
+      &_item > a {
+        color: $vt_white !important;
+        border-radius: 10px;
+      }
+
+      &_item :hover {
+        background-color: $vt_menu_hover_bg;
+      }
+
+      &_action {
+
+        &_show {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 70%;
+          padding-left: 10px;
+        }
+
+        &_hide {
+          height: 65%;
+          padding-left: 25px;
+        }
+
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        border-radius: 16px 0 0 16px;
+
+        &_wrap {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .vt_menu_close {
+    right: 16px;
+    top: 10px;
+  }
+  .px-3 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}

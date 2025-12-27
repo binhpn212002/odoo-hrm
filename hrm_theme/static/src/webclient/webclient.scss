@@ -1,0 +1,27 @@
+.o_doc_link {
+  display: none;
+}
+
+.border-search{
+  border-radius: 20px;
+}
+.border-search::-webkit-scrollbar{
+ width: 0px;
+}
+
+.dropdown-border-primary:before{
+  content: '';
+}
+
+.o_form_view.o_xxs_form_view .o_inner_group{
+  margin: 0;
+}
+
+.btn-cart{
+    right: 20px;
+    top: 10px;
+    width: 40px;
+    height: 33px;
+    border-radius: 10px;
+    border: none;
+}

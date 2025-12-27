@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="vitech.Chatter" t-inherit="mail.Chatter">
+      <xpath expr="//t[@t-call='mail.Chatter.attachFiles']" position="attributes">
+        <attribute name="t-call">vitech.Chatter.attachFiles</attribute>
+    </xpath>
+      <xpath expr="//t[@t-call='mail.Chatter.attachFiles']" position="attributes">
+        <attribute name="t-call">vitech.Chatter.attachFiles</attribute>
+    </xpath>
+    </t>
+  <t t-name="vitech.Chatter.attachFiles" t-inherit="mail.Chatter.attachFiles">
+    <xpath expr="//button[hasclass('o-mail-Chatter-attachFiles')]" position="attributes">
+      <attribute name="t-if">!props.hideAttachment</attribute>
+    </xpath>
+  </t>
+</templates>
