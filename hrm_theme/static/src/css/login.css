@@ -1,38 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
 }
 
-html, body {
-    background-color: #fff;
-    font-family: "Lato", "Open Sans", "Helvetica", Sans;
+html,
+body {
+  background-color: #fff;
+  font-family: "Lato", "Open Sans", "Helvetica", Sans;
 }
 
 .o_login_page {
-    background-image: url(/vitech_real_estate_theme/static/img/div.elementor-element.png);
-    background-position: bottom;
-    background-size: cover;
+  background-image: url(/hrm_theme/static/img/div.elementor-element.png);
+  background-position: bottom;
+  background-size: cover;
 }
 
 .o_field_login {
-    display: flex;
-    align-items: center;
-    padding: 10px 8px;
-    border: 1px solid #b0b0b0;
-    background: #fff;
-    border-radius: 5px;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  border: 1px solid #b0b0b0;
+  background: #fff;
+  border-radius: 5px;
+  gap: 5px;
 }
 
 .o_field_login_input {
-    width: 280px;
-    background-color: transparent;
-    border: none;
-    outline: none
+  width: 280px;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 .o_link {
-    text-decoration: none;
-    color: unset;
+  text-decoration: none;
+  color: unset;
 }
-

@@ -24,18 +24,7 @@
 
   # always loaded
   'data': [
-    'security/real_estate_core_security.xml',
     'security/ir.model.access.csv',
-    # 'security/security.xml',
-    'data/res_company_demo.xml',
-    'data/res_users_demo.xml',
-    'data/res_partner_data.xml',
-    'data/real_estate_team_demo.xml',
-    'views/real_estate_team.xml',
-    'views/real_estate_user.xml',
-    'views/real_estate_core_menu.xml',
-    'views/real_estate_company.xml',
-    'views/real_estate_setting.xml',
     'views/templates.xml',
   ],
   'assets': {
@@ -47,11 +36,6 @@
   },
   # only loaded in demonstration mode
   'demo': [
-    'demo/demo.xml',
-    # 'data/res_company_demo.xml',
-    # 'data/res_users_demo.xml',
-    # 'data/res_partner_data.xml',
-    # 'data/real_estate_team_demo.xml',
   ],
   'auto_install': True,
 }

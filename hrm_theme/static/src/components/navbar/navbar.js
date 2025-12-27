@@ -1,50 +1,52 @@
 /** @odoo-module **/
-import {NavBar} from "@web/webclient/navbar/navbar";
-import {useService} from "@web/core/utils/hooks";
-import {VTAppMenu} from "./app_menu";
+import { useService } from "@web/core/utils/hooks";
+import { NavBar } from "@web/webclient/navbar/navbar";
+import { AppMenu } from "./app_menu";
 
-const {useState, onMounted, onWillStart, useRef} = owl
+const { useState, onMounted, useRef } = owl;
 
-export class VTNavbar extends NavBar {
-    setup() {
-        super.setup();
-        this.router = useService("router");
-        this.appMenuRef = useRef('appMenuRef')
-         this.menuRepo = useService("menu");
-        this.state = useState({
-            sessions: {},
-            vtMenuService: useService("hrm_theme.vt_menu_service"),
-        })
-        onMounted(async () => {
-            await this.state.vtMenuService.handleActiveMenuWhenClickReload(this.router.current.hash.menu_id)
-        })
-    }
+export class HrmNavbar extends NavBar {
+  setup() {
+    super.setup();
+    this.router = useService("router");
+    this.appMenuRef = useRef("appMenuRef");
+    this.menuRepo = useService("menu");
+    this.state = useState({
+      sessions: {},
+      hrmMenuService: useService("hrm_theme.hrm_menu_service"),
+    });
+    onMounted(async () => {
+      await this.state.hrmMenuService.handleActiveMenuWhenClickReload(
+        this.router.current.hash.menu_id
+      );
+    });
+  }
 
-    onNavBarDropdownItemSelection(menu, vet) {
-        this.state.vtMenuService.state.vetId = 0
-        super.onNavBarDropdownItemSelection(menu)
-        this.state.vtMenuService.state.actionId = menu.actionID
-        const findVet = (m, menu) => {
-            if (m.childrenTree) {
-                if (m.children.includes(menu.id)) {
-                    this.state.vtMenuService.state.vetId = vet
-                    return
-                }
-                m.childrenTree.forEach(s => {
-                    findVet(s, menu)
-                })
-            }
+  onNavBarDropdownItemSelection(menu, vet) {
+    this.state.hrmMenuService.state.vetId = 0;
+    super.onNavBarDropdownItemSelection(menu);
+    this.state.hrmMenuService.state.actionId = menu.actionID;
+    const findVet = (m, menu) => {
+      if (m.childrenTree) {
+        if (m.children.includes(menu.id)) {
+          this.state.hrmMenuService.state.vetId = vet;
+          return;
         }
-        this.menuService.getCurrentApp().childrenTree.forEach((m) => {
-            if (m.children) {
-                findVet(m, menu)
-            }
-        })
-    }
+        m.childrenTree.forEach((s) => {
+          findVet(s, menu);
+        });
+      }
+    };
+    this.menuService.getCurrentApp().childrenTree.forEach((m) => {
+      if (m.children) {
+        findVet(m, menu);
+      }
+    });
+  }
 }
 
-VTNavbar.template = "hrm_theme.navbar"
-VTNavbar.components = {
-    ...NavBar.components,
-    VTAppMenu: VTAppMenu,
-}
+HrmNavbar.template = "hrm_theme.navbar";
+HrmNavbar.components = {
+  ...NavBar.components,
+  AppMenu: AppMenu,
+};

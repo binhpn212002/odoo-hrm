@@ -175,7 +175,7 @@
     </Dropdown>
   </t>
 
-  <t t-name="vitech.web.CheckboxItem" t-inherit="web.DropdownItem" t-inherit-mode="primary">
+  <t t-name="hrm_theme.CheckboxItem" t-inherit="web.DropdownItem" t-inherit-mode="primary">
     <xpath expr="//t[@role='menuitem']" position="attributes">
       <attribute name="role">menuitemcheckbox</attribute>
       <attribute name="t-att-aria-checked">props.checked ? 'true' : 'false'</attribute>

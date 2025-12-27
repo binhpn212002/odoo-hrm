@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
-    <t t-name="vitech_real_estate_core.Many2ManyImagePreview">
+    <t t-name="hrm_core.Many2ManyImagePreview">
        <div t-attf-class="oe_fileupload {{props.className ? props.className : ''}}" aria-atomic="true">
 
             <div t-if="!props.readonly &amp;&amp; (!props.numberOfFiles or files.length &lt; props.numberOfFiles)"
@@ -47,7 +47,7 @@
          t-att-title="file.name">
 
                 <div t-att-aria-label="file.filename"
-                     class="o-vitech-image-preview d-flex position-relative flex-shrink-0 mw-100 mb-1 me-1"
+                     class="o-hrm-image-preview d-flex position-relative flex-shrink-0 mw-100 mb-1 me-1"
                      t-att-title="file.name"
                      tabindex="0"
                      aria-label="View image"

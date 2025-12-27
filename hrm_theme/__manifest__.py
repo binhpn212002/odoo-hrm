@@ -12,23 +12,17 @@ Long description of module's purpose
   'depends': ['base', 'web', 'mail'],
   'data': [
     'security/ir.model.access.csv',
-    'security/slider_security.xml',
-    'views/views.xml',
     'views/templates.xml',
     'views/reset_password.xml',
     'views/login_layout.xml',
     'views/login.xml',
-    'views/menu.xml',
     'views/signup.xml',
-    'views/vitech_theme.xml',
+    'views/hrm_theme.xml',
     'views/res_user.xml',
-    'views/web_login_layout.xml',
-    'views/vitech_slider.xml',
-    'demo/vitech_theme.xml',
+    'demo/hrm_theme.xml'
   ],
   # only loaded in demonstration mode
   'demo': [
-    'demo/demo.xml',
   ],
   'assets': {
     'web.assets_backend': [
@@ -51,7 +45,7 @@ Long description of module's purpose
       'hrm_theme/static/src/**/*.scss',
       'hrm_theme/static/src/pages/**/*.js',
       'hrm_theme/static/src/pages/**/*.xml',
-      'hrm_theme/static/src/pages/**/*.scss',
+      'hrm_theme/static/src/pages/**/*.scss'
     ],
   },
 }

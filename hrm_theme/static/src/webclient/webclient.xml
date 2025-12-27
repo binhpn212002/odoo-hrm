@@ -5,10 +5,10 @@
        t-inherit-mode="extension"
     >
         <xpath expr="//NavBar" position="replace">
-            <VTNavbar/>
+            <HrmNavbar/>
         </xpath>
         <xpath expr="//MainComponentsContainer" position="before">
-            <VTAction/>
+            <HrmAction/>
         </xpath>
         <xpath expr="." position="inside">
                  <link
@@ -88,7 +88,7 @@
         </xpath>
     </t>
 
-    <t t-name="vitech.web.SettingsFormView" t-inherit="web.SettingsFormView" t-inherit-mode="primary">
+    <t t-name="hrm_theme.SettingsFormView" t-inherit="web.SettingsFormView" t-inherit-mode="primary">
         <xpath expr="//Layout/t[@t-set-slot='layout-actions']" position="replace">
             <t t-set-slot="layout-actions">
                 <div class="o_cp_searchview  d-flex w-100 w-md-75" role="search">
@@ -108,13 +108,13 @@
     </t>
 
 
-    <t t-name="vitech.web.DocumentationLink" t-inherit="web.DocumentationLink" t-inherit-mode="extension">
+    <t t-name="hrm_theme.DocumentationLink" t-inherit="web.DocumentationLink" t-inherit-mode="extension">
             <xpath expr="//a[contains(@class, 'o_doc_link')]" position="attributes">
                 <attribute name="class" add="d-none" separator=" "/>
             </xpath>
       </t>
 
-    <t t-name="vitech.web.StatusBarButtons" t-inherit="web.StatusBarButtons" t-inherit-mode="extension">
+    <t t-name="hrm_theme.StatusBarButtons" t-inherit="web.StatusBarButtons" t-inherit-mode="extension">
         <xpath expr="//div[contains(@class, 'o_statusbar_buttons')]" position="replace">
             <div class="o_statusbar_buttons d-flex align-items-center align-content-around flex-wrap gap-1">
                 <t t-set="slots" t-value="visibleSlotNames"/>
@@ -125,7 +125,7 @@
         </xpath>
     </t>
 
-    <t t-name="vitech.web.Layout" t-inherit="web.Layout" t-inherit-mode="extension">
+    <t t-name="hrm_theme.Layout" t-inherit="web.Layout" t-inherit-mode="extension">
          <xpath expr="//div[contains(@class, 'o_content')]" position="attributes">
                 <attribute name="class" add="px-2" separator=" "></attribute>
         </xpath>

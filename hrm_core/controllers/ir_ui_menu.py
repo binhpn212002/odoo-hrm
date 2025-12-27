@@ -2,7 +2,7 @@
 from odoo import http
 from odoo.http import request
 
-class VitechRealEstateUser(http.Controller):
+class IrUiMenuController(http.Controller):
     @http.route('/webclient/menu/<string:xml_id>', auth='public' , type="json")
     def _get_menu_by_xmlID(self, xml_id, lang=None):
       if lang:

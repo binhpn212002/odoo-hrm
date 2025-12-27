@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Camera dialog box template-->
 <templates xml:space="preserve">
-  <t t-name="vitech.NotificationField">
+  <t t-name="hrm.NotificationField">
       <img t-att-src="formattedValue" width="50" height="50"/>
   </t>
 </templates>

@@ -205,7 +205,7 @@
                 !important;
                 }
                 }
-                .o_vitech_app_menu_bg {
+                .o_hrm_app_menu_bg {
                 background-color:
                 <t t-out="primary"/>
                 !important;
@@ -219,7 +219,7 @@
             <t t-set="menuitem_color" t-value="request.env.user.theme_id.menuitem_color"/>
             <t t-if="menuitem_color">
                 <style>
-                    .vt_active {
+                    .hrm_active {
                     background-color:
                     <t t-out="menuitem_color"/>
                     !important;
@@ -248,7 +248,7 @@
             <t t-set="secondary_color" t-value="request.env.user.secondary_color"/>
             <t t-if="secondary_color">
                 <style>
-                    .o_vitech_navbar i {
+                    .o_hrm_navbar i {
                         color:  <t t-out="secondary_color"/>  !important;
                     }
                 </style>

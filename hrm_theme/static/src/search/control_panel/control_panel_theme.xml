@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
-    <t t-name="vitech.theme.ControlPanel" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+    <t t-name="hrm_theme.ControlPanel" t-inherit="web.ControlPanel" t-inherit-mode="extension">
         <xpath expr="//div[hasclass('o_control_panel_main')]" position="attributes">
         </xpath>
     </t>
 
-  <t t-name="vitech.theme.Breadcrumbs">
+  <t t-name="hrm_theme.Breadcrumbs">
         <t t-set="currentBreadcrumbs" t-value="breadcrumbs.slice(-1)"/>
     <t t-set="visiblePathBreadcrumbs" t-value="breadcrumbs.slice(-3, -1)"/>
     <t t-set="collapsedBreadcrumbs" t-value="breadcrumbs.slice(0, -3).reverse()"/>
@@ -29,7 +29,7 @@
                             </t>
                           <t t-foreach="collapsedBreadcrumbs" t-as="breadcrumb" t-key="breadcrumb.jsId">
                                 <DropdownItem onSelected="() => this.onBreadcrumbClicked(breadcrumb.jsId)">
-                                    <t t-call="vitech.theme.Breadcrumb.Name"/>
+                                    <t t-call="hrm_theme.Breadcrumb.Name"/>
                                 </DropdownItem>
                             </t>
                         </Dropdown>
@@ -39,35 +39,35 @@
                             t-att-class="{ o_back_button: breadcrumb_last }" t-att-data-hotkey="breadcrumb_last and 'b'"
                             t-on-click.prevent="() => this.onBreadcrumbClicked(breadcrumb.jsId)">
                             <a href="#" class="fw-bold text-truncate"
-                               t-att-data-tooltip="'Back to &quot;' + breadcrumb.name + '&quot;'"><t t-call="vitech.theme.Breadcrumb.Name"/></a>
+                               t-att-data-tooltip="'Back to &quot;' + breadcrumb.name + '&quot;'"><t t-call="hrm_theme.Breadcrumb.Name"/></a>
                         </li>
                     </t>
                 </ol>
             </t>
       <div class="d-flex gap-1 text-truncate">
                 <div class="o_last_breadcrumb_item active d-flex gap-2 align-items-center min-w-0 lh-sm">
-                    <span class="min-w-0 text-truncate" t-call="vitech.theme.Breadcrumb.Name"/>
+                    <span class="min-w-0 text-truncate" t-call="hrm_theme.Breadcrumb.Name"/>
                 </div>
-        <t t-call="vitech.theme.Breadcrumb.Actions"/>
+        <t t-call="hrm_theme.Breadcrumb.Actions"/> 
             </div>
         </div>
 
     <div t-else="" class="o_breadcrumb d-flex gap-1 text-truncate">
             <div class="o_last_breadcrumb_item active d-flex fs-4 min-w-0 align-items-center">
-                <span class="min-w-0 text-truncate" t-call="vitech.theme.Breadcrumb.Name"/>
+                <span class="min-w-0 text-truncate" t-call="hrm_theme.Breadcrumb.Name"/>
             </div>
-      <t t-call="vitech.theme.Breadcrumb.Actions"/>
+      <t t-call="hrm_theme.Breadcrumb.Actions"/>
         </div>
     <t t-slot="control-panel-status-indicator"/>
     </t>
 
-  <t t-name="vitech.theme.Breadcrumb.Actions">
+  <t t-name="hrm_theme.Breadcrumb.Actions">
         <div class="o_control_panel_breadcrumbs_actions d-inline-flex">
             <t t-slot="control-panel-additional-actions"/>
         </div>
     </t>
 
-  <t t-name="vitech.theme.Breadcrumb.Name">
+  <t t-name="hrm_theme.Breadcrumb.Name">
         <div class="fs-2 fw-bold text-color-theme">
             <t t-if="breadcrumb.name" t-out="breadcrumb.name" t-attf-class="fs-2"/>
           <t t-slot="control-panel-additional-breadcrums"/>

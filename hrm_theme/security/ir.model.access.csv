@@ -1,3 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_vitech_theme_user,vitech.theme.user.access,model_vitech_theme,,1,1,1,1
-access_vitech_user_manager,vitech.slider.user.access,model_vitech_slider,base.group_user,1,1,1,1
+access_hrm_theme_user,hrm.theme.user.access,model_hrm_theme,,1,1,1,1

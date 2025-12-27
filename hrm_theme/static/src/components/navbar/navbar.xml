@@ -3,10 +3,10 @@
     <t t-name="hrm_theme.navbar"
     >
         <header>
-            <nav class="d-flex bg-primary justify-content-between align-items-center px-2 o_vitech_navbar position-relative py-2"
+            <nav class="d-flex bg-primary justify-content-between align-items-center px-2 o_hrm_navbar position-relative py-2"
                  style="height:70px">
-            <VTAppMenu/>
-              <div class="d-none d-lg-flex justify-content-center o_vitech_navbar_sections ">
+            <AppMenu/>
+              <div class="d-none d-lg-flex justify-content-center o_hrm_navbar_sections ">
                 <t t-if="currentAppSections.length" t-call="hrm_theme.NavBar.SectionsMenu">
                   <t t-set="sections" t-value="currentAppSections"/>
                 </t>
@@ -20,8 +20,8 @@
                   </t>
                 </div>
             </nav>
-          <div t-if="state.vtMenuService.state.isSession"
-               class="d-flex justify-content-center o_vitech_navbar_sections ">
+          <div t-if="state.hrmMenuService.state.isSession"
+               class="d-flex justify-content-center o_hrm_navbar_sections ">
                     <t t-if="currentAppSections.length" t-call="hrm_theme.NavBar.SectionsMenu.Mobile">
                       <t t-set="sections" t-value="currentAppSections"/>
                     </t>
@@ -32,7 +32,7 @@
   <t t-name="hrm_theme.NavBar.SectionsMenu"
      t-inherit="web.NavBar.SectionsMenu">
        <xpath expr="//DropdownItem" position="attributes">
-          <attribute name="class" position="add" separator=" ">(this.state.vtMenuService.state.actionId == section.actionID? ' vt_active py-2 px-3':'py-2 px-3')</attribute>
+          <attribute name="class" position="add" separator=" ">(this.state.hrmMenuService.state.actionId == section.actionID? ' hrm_active py-2 px-3':'py-2 px-3')</attribute>
        </xpath>
     <xpath expr="//MenuDropdown" position="replace">
         <t t-set="vet" t-value="section.id"></t>
@@ -40,7 +40,7 @@
                       xmlid="section.xmlid"
                       class="'p-0'">
            <t t-set-slot="toggler">
-                <button t-attf-class=" #{vet == this.state.vtMenuService.state.vetId ? 'vt_active py-2 px-3 vt-dropdown' : 'py-2 px-3 vt-dropdown'}"
+                <button t-attf-class=" #{vet == this.state.hrmMenuService.state.vetId ? 'hrm_active py-2 px-3 hrm-dropdown' : 'py-2 px-3 hrm-dropdown'}"
                         t-esc="section.name"
                         t-att-data-section="section.id"/>
            </t>
@@ -58,16 +58,16 @@
                      separator=" "></attribute>
        </xpath>
     <xpath expr="//DropdownItem" position="attributes">
-          <attribute name="class" position="add" separator=" ">(this.state.vtMenuService.state.actionId == section.actionID? ' vt_active py-2 px-3':'py-2 px-3')</attribute>
+          <attribute name="class" position="add" separator=" ">(this.state.hrmMenuService.state.actionId == section.actionID? ' hrm_active py-2 px-3':'py-2 px-3')</attribute>
        </xpath>
     <xpath expr="//MenuDropdown" position="replace">
             <t t-set="vet" t-value="section.id"></t>
       <MenuDropdown
               hotkey="hotkey"
               xmlid="section.xmlid"
-              class="`${vet == this.state.vtMenuService.state.vetId ? 'vt_active  py-2 px-3' : 'py-2 px-3'}`">
+              class="`${vet == this.state.hrmMenuService.state.vetId ? 'hrm_active  py-2 px-3' : 'py-2 px-3'}`">
             <t t-set-slot="toggler">
-              <span t-esc="section.name" class="vt-dropdown" t-att-data-section="section.id"/>
+              <span t-esc="section.name" class="hrm-dropdown" t-att-data-section="section.id"/>
             </t>
         <t t-call="hrm_theme.NavBar.SectionsMenu.Dropdown.MenuSlot">
               <t t-set="items" t-value="section.childrenTree"/>

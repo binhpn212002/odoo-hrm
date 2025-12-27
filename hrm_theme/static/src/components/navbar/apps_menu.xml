@@ -2,20 +2,20 @@
 <templates xml:space="preserve">
     <t t-name="hrm_theme.NavBar.AppsMenu">
         <div id="dropdown"
-             class="o_vitech_app_menu d-none d-md-block d-lg-block d-xl-block d-xxl-block  py-3">
+             class="o_hrm_app_menu d-none d-md-block d-lg-block d-xl-block d-xxl-block  py-3">
             <span t-on-click="()=>this.openWithWindow()" class="cursor-pointer">
                 <i class="fa fa-bars app_menu"   width="28"  aria-hidden="true"></i>
             </span>
-          <div t-if="this.state.isMenu" class="o_vitech_app_menu_data o_vitech_app_menu_bg position-absolute">
+          <div t-if="this.state.isMenu" class="o_hrm_app_menu_data o_hrm_app_menu_bg position-absolute">
             <t t-set="apps" t-value="this.state.menuApp"/>
-            <div class="o_vitech_app_menu_data_wrap">
-            <div class=" o_vitech_app_menu_data_item  d-flex justify-content-center align-items-center  "
+            <div class="o_hrm_app_menu_data_wrap">
+            <div class=" o_hrm_app_menu_data_item  d-flex justify-content-center align-items-center  "
                  t-foreach="apps"
                  t-as="app"
                  t-key="app.id">
                     <DropdownItem
                             class="{ 'o_app p-3 fw-bolder': true, focus: menuService.getCurrentApp() === app }"
-                            href="this.state.vtMenuService.getMenuItemHref(app)"
+                            href="this.state.hrmMenuService.getMenuItemHref(app)"
                             dataset="{ menuXmlid: app.xmlid, section: app.id }"
                             onSelected="() => this.onNavBarDropdownItemSelection(app)">
                       <img t-if="app.webIconData" t-att-src="'data:image/png;base64,' + app.webIconData" alt="App Icon"
@@ -23,16 +23,8 @@
                       <span t-out="app.name"/>
                     </DropdownItem>
                 </div>
-                <p t-if="this.state.hotline" class="text-white p-3 fw-bolder mt-2">
-                    HotLine: <a t-attf-href="tel:#{this.state.hotline}" t-out="this.state.hotline" class="o_hotline text-white"></a>
-                </p>
             </div>
             </div>
         </div>
-      <div class="o_vitech_app_menu_mobile d-block d-sm-block d-md-none">
-        <span class="cursor-pointer" t-on-click="()=>this.backToHome()">
-                <i class="fa fa-home" style="font-size:38px"></i>
-          </span>
-      </div>
     </t>
 </templates>

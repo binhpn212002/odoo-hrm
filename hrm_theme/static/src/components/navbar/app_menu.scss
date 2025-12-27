@@ -1,11 +1,11 @@
-$vt_app_menu_color: #234f68;
-$vt_white: #fff;
-$vt_menu_hover_bg: #099cf1;
+$hrm_app_menu_color: #234f68;
+$hrm_white: #fff;
+$hrm_menu_hover_bg: #099cf1;
 .app_menu {
   font-size: 28px;
 }
 
-.o_vitech_app_menu {
+.o_hrm_app_menu {
   &_data {
     z-index: 10;
     border-radius: 16px 16px 16px 0;
@@ -13,7 +13,7 @@ $vt_menu_hover_bg: #099cf1;
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -50,18 +50,16 @@ $vt_menu_hover_bg: #099cf1;
       }
     }
 
-
-    background-color: $vt_app_menu_color;
+    background-color: $hrm_app_menu_color;
     -moz-border-radius-bottomleft: 0;
 
-
     &_item > a {
-      color: $vt_white !important;
+      color: $hrm_white !important;
       border-radius: 10px;
     }
 
     &_item:hover {
-      background-color: $vt_menu_hover_bg;
+      background-color: $hrm_menu_hover_bg;
       border-top-left-radius: 20px; /* Bo góc trên bên trái */
       border-bottom-left-radius: 20px; /* Bo góc dưới bên trái */
     }
@@ -74,7 +72,7 @@ $vt_menu_hover_bg: #099cf1;
 }
 
 @media (max-width: 576px) {
-  .o_vitech_app_menu {
+  .o_hrm_app_menu {
     &_data {
       z-index: 10;
       top: 0;
@@ -82,19 +80,18 @@ $vt_menu_hover_bg: #099cf1;
       border-radius: 0px;
       height: 100vh;
       width: 100vw;
-      background-color: $vt_app_menu_color;
+      background-color: $hrm_app_menu_color;
 
       &_item > a {
-        color: $vt_white !important;
+        color: $hrm_white !important;
         border-radius: 10px;
       }
 
       &_item :hover {
-        background-color: $vt_menu_hover_bg;
+        background-color: $hrm_menu_hover_bg;
       }
 
       &_action {
-
         &_show {
           display: flex;
           flex-direction: column;
@@ -119,7 +116,7 @@ $vt_menu_hover_bg: #099cf1;
       }
     }
   }
-  .vt_menu_close {
+  .hrm_menu_close {
     right: 16px;
     top: 10px;
   }

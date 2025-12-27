@@ -5,5 +5,5 @@ class RealEstateSettings(models.TransientModel):
   _name = 'res.config.settings'
   _inherit = 'res.config.settings'
 
-  hotline = fields.Char('HotLine', config_parameter='vitech_real_estate_core.hotline', default='')
+  hotline = fields.Char('HotLine', config_parameter='hrm_core.hotline', default='')
 

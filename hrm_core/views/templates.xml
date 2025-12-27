@@ -2,7 +2,7 @@
 <odoo>
     <template id="favicon_icon" inherit_id="web.layout" name="Web layout">
         <xpath expr="//head/link[@rel='shortcut icon']" position="attributes">
-            <attribute name="t-att-href">'vitech_notification/static/img/phan-mem-mkt-favico.png'
+            <attribute name="t-att-href">'hrm_core/static/img/phan-mem-mkt-favico.png'
             </attribute>
         </xpath>
         <xpath expr="//head/title" position="attributes">

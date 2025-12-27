@@ -5,7 +5,7 @@ from odoo import api, fields, models, _
 class ResUserSettings(models.Model):
   _inherit = 'res.users'
 
-  theme_id = fields.Many2one('vitech.theme', string=_('Theme'), help='Select a theme for the user')
+  theme_id = fields.Many2one('hrm.theme', string=_('Theme'), help='Select a theme for the user')
 
   primary_color = fields.Selection(related="theme_id.primary_color", string=_("Primary Color"),
                                    help=_("Select the primary color for the user interface."))
