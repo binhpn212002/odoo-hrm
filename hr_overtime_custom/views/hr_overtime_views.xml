@@ -1,0 +1,93 @@
+<odoo>
+    <data>
+        <record id="view_hr_overtime_tree_custom" model="ir.ui.view">
+            <field name="name">hr.overtime.tree</field>
+            <field name="model">hr.overtime</field>
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="duration"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_hr_overtime_form" model="ir.ui.view">
+            <field name="name">hr.overtime.form</field>
+            <field name="model">hr.overtime</field>
+            <field name="arch" type="xml">
+                <form string="Overtime">
+                    <header>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,approved,cancel"/>
+                        <button name="action_approve"
+                                string="Duyệt"
+                                type="object"
+                                invisible="state != 'draft'"
+                                class="btn-primary"/>
+
+                        <button name="action_cancel"
+                                string="Hủy"
+                                type="object"
+                                invisible="state == 'approved' or state == 'cancel'"
+                                class="btn-danger"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="start_time" readonly="1"/>
+                                <field name="end_time" readonly="1"/>
+                                <field name="duration"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+        <!-- <record id="action_my_hr_overtime" model="ir.actions.act_window">
+            <field name="name">My Overtime</field>
+            <field name="res_model">hr.overtime</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">
+             []
+            </field>
+        </record> -->
+
+        <record id="action_hr_overtime" model="ir.actions.act_window">
+            <field name="name">Overtime</field>
+            <field name="res_model">hr.overtime</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_overtime_tree_custom"/>
+        </record>
+
+
+        <menuitem id="menu_hr_overtime_root"
+                  name="Tăng ca"
+                  sequence="30"/>
+
+        <menuitem id="menu_hr_overtime"
+                  name="Danh sách tăng ca"
+                  parent="menu_hr_overtime_root"
+                  action="action_hr_overtime"
+                  sequence="10"/>
+
+        <!-- <menuitem id="menu_my_hr_overtime"
+                  name="Tăng ca của tôi"
+                  parent="menu_hr_overtime_root"
+                  action="action_my_hr_overtime"
+                  sequence="5"/> -->
+
+    </data>
+</odoo>
