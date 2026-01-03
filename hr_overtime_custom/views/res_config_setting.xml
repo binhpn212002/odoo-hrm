@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_attendance_view_form_custom" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr.attendance.custom</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Chèn block Shift sau block Kiosk -->
+            <xpath expr="//block[@name='attendance_shift']" position="after">
+                <block title="Overtime Settings" name="overtime_shift">
+                    <setting string="Work Time Configuration">
+                        <div class="row mt16">
+                            <div class="col-6">
+                                <label for="max_ot_duration"/>
+                                <field name="max_ot_duration"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
