@@ -29,8 +29,19 @@ class HrOvertime(models.Model):
     def create(self, vals):
         end_work_time = float(self.env['ir.config_parameter'].get_param('hr_attendance_custom.work_end_time', '0'))
         max_ot_duration = float(self.env['ir.config_parameter'].get_param('hr_overtime_custom.max_ot_duration', '0'))
-        if vals['duration'] > max_ot_duration:
-            raise ValidationError("Giờ tăng ca vượt quá giờ tối đa tăng ca")
+
+        # check application leave in the day
+        ot_day = vals['date']
+        is_time_off = self.env['hr.leave'].search([('request_date_from', '<=', ot_day),
+         ('request_date_to', '>=', ot_day) , 
+         ('employee_id', '=', vals['employee_id']) 
+         , ('state', '=', 'validate')], limit=1)
+        if is_time_off:
+            raise ValidationError("Đã có đơn nghỉ phép cho ngày này")
+        # check max overtime duration
+        duration = vals['duration']
+        if duration > max_ot_duration or duration <= 0:
+            raise ValidationError("Giờ tăng ca vượt quá giờ tối đa tăng ca hoặc không hợp lệ")
         res = super(HrOvertime, self).create(vals)
         res.start_time = end_work_time 
         res.end_time = end_work_time + res.duration
