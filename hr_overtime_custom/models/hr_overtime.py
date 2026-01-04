@@ -6,6 +6,8 @@ class HrOvertime(models.Model):
     _description = 'HR Overtime'
     _inherit = ['hr.attendance.overtime']
 
+    ot_type_id = fields.Many2one('hr.ot.type.vn', string='Loại tăng ca')
+
     state = fields.Selection(
         [
             ('draft', 'Nháp'),

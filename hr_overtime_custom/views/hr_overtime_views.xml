@@ -54,16 +54,9 @@
                 </form>
             </field>
         </record>
+   
 
 
-        <!-- <record id="action_my_hr_overtime" model="ir.actions.act_window">
-            <field name="name">My Overtime</field>
-            <field name="res_model">hr.overtime</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">
-             []
-            </field>
-        </record> -->
 
         <record id="action_hr_overtime" model="ir.actions.act_window">
             <field name="name">Overtime</field>
@@ -73,21 +66,14 @@
         </record>
 
 
-        <menuitem id="menu_hr_overtime_root"
-                  name="Tăng ca"
-                  sequence="30"/>
-
-        <menuitem id="menu_hr_overtime"
-                  name="Danh sách tăng ca"
-                  parent="menu_hr_overtime_root"
-                  action="action_hr_overtime"
-                  sequence="10"/>
-
-        <!-- <menuitem id="menu_my_hr_overtime"
-                  name="Tăng ca của tôi"
-                  parent="menu_hr_overtime_root"
-                  action="action_my_hr_overtime"
-                  sequence="5"/> -->
+        <record id="action_hr_my_overtime" model="ir.actions.act_window">
+            <field name="name">Tăng ca của tôi</field>
+            <field name="res_model">hr.overtime</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">
+                [('employee_id.user_id.id', '=', uid)]
+            </field>
+        </record>
 
     </data>
 </odoo>

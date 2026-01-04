@@ -1,0 +1,30 @@
+<odoo noupdate="1">
+    <data><record id="ot_wd" model="hr.ot.type.vn">
+    <field name="name">OT Ngày thường</field>
+    <field name="code">OT_WD</field>
+    <field name="rate">150</field>
+</record>
+
+<record id="ot_we" model="hr.ot.type.vn">
+    <field name="name">OT Cuối tuần</field>
+    <field name="code">OT_WE</field>
+    <field name="rate">200</field>
+    <field name="is_weekend">True</field>
+</record>
+
+<record id="ot_ph" model="hr.ot.type.vn">
+    <field name="name">OT Ngày lễ</field>
+    <field name="code">OT_PH</field>
+    <field name="rate">300</field>
+    <field name="is_public_holiday">True</field>
+</record>
+
+<record id="ot_night" model="hr.ot.type.vn">
+    <field name="name">OT Ban đêm</field>
+    <field name="code">OT_NIGHT</field>
+    <field name="rate">30</field>
+    <field name="is_night">True</field>
+</record>
+
+    </data>
+</odoo>

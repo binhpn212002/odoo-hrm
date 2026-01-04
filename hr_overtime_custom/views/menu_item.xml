@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_hr_overtime_root"
+                  name="Tăng ca"
+                  sequence="30"/>
+
+        <menuitem id="menu_hr_overtime"
+                  name="Danh sách tăng ca"
+                  parent="menu_hr_overtime_root"
+                  action="action_hr_overtime"
+                  sequence="5"/>
+
+        <menuitem id="menu_hr_my_overtime"
+                  name="Tăng ca của tôi"
+                  parent="menu_hr_overtime_root"
+                  action="action_hr_my_overtime"
+                  sequence="10"/>
+
+        <menuitem id="menu_hr_overtime_configuration"
+                  name="Cấu hình"
+                  parent="menu_hr_overtime_root"
+                  sequence="15"/>
+
+        <menuitem id="menu_hr_overtime_type"
+                  name="Loại tăng ca"
+                  parent="menu_hr_overtime_configuration"
+                  action="action_hr_ot_type_vn"
+                  sequence="5"/>
+    </data>
+</odoo>
