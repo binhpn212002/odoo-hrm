@@ -22,9 +22,11 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'views/hr_leave_type_views.xml',
-        'views/res_config_setting.xml'
+        'views/res_config_setting.xml',
+        'views/public_holidays_cron.xml',
+        'views/hr_holiday_vn_views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

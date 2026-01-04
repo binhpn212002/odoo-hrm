@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_holiday_vn_tree" model="ir.ui.view">
+            <field name="name">hr.holiday.vn.tree</field>
+            <field name="model">hr.holiday.vn</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_holiday_vn_search" model="ir.ui.view">
+            <field name="name">hr.holiday.vn.search</field>
+            <field name="model">hr.holiday.vn</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="year"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_hr_holiday_vn_form" model="ir.ui.view">
+            <field name="name">hr.holiday.vn.form</field>
+            <field name="model">hr.holiday.vn</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="year" required="1" invisible="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date_from"/>
+                            </group>
+                            <group>
+                                <field name="date_to"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_holiday_vn" model="ir.actions.act_window">
+            <field name="name">Ngày nghỉ lễ</field>
+            <field name="res_model">hr.holiday.vn</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_leave_custom.view_hr_holiday_vn_tree"/>
+        </record>
+
+   <menuitem
+        id="menu_hr_holiday_vn_configuration"
+        action="action_hr_holiday_vn"
+        name="Ngày nghỉ lễ"
+        parent="hr_holidays.menu_hr_holidays_configuration"
+        sequence="10"/>
+    </data>
+</odoo>
