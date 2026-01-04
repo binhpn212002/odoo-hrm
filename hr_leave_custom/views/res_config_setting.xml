@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<record id="res_config_settings_view_form_inherit_hr_leave_custom" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr_leave_custom</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Leave" string="Nghỉ phép" name="hr_leave" groups="base.group_system">
+                    <block title="Leave Settings" name="leave_settings">
+                        <setting string="Số phép năm"  help="Số phép năm" id="max_days_year_setting">
+                            <field name="max_days_year" />
+                        </setting>
+                        <setting string="Số phép thâm niên" help="Số phép thâm niên" id="max_days_year_increment_setting">
+                            <field name="max_days_year_increment" />
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

@@ -23,7 +23,8 @@ Long description of module's purpose
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/hr_leave_type_views.xml'
+        'views/hr_leave_type_views.xml',
+        'views/res_config_setting.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
