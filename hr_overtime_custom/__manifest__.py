@@ -24,11 +24,14 @@ Long description of module's purpose
     'data': [
         'security/ir.model.access.csv',
         'views/hr_overtime_views.xml',
-        'views/res_config_setting.xml'
+        'views/res_config_setting.xml',
+        'views/hr_ot_type_vn_views.xml',
+        'demo/ot_demo.xml',
+        'views/menu_item.xml'
+
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
     ],
 }
 

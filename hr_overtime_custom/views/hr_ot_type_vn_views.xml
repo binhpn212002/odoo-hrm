@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="view_hr_overtime_type_tree_custom" model="ir.ui.view">
+            <field name="name">hr.ot.type.vn.tree</field>
+            <field name="model">hr.ot.type.vn</field>
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="rate"/>
+                    <field name="is_weekend"/>
+                    <field name="is_public_holiday"/>
+                    <field name="is_night"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_hr_ot_type_vn_form" model="ir.ui.view">
+            <field name="name">hr.ot.type.vn.form</field>
+            <field name="model">hr.ot.type.vn</field>
+            <field name="arch" type="xml">
+                <form string="Loại tăng ca">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="rate"/>
+                                <field name="is_weekend"/>
+                                <field name="is_public_holiday"/>
+                                <field name="is_night"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+       
+
+        <record id="action_hr_ot_type_vn" model="ir.actions.act_window">
+            <field name="name">Loại tăng ca</field>
+            <field name="res_model">hr.ot.type.vn</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_overtime_type_tree_custom"/>
+        </record>
+    </data>
+</odoo>
