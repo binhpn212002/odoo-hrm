@@ -12,17 +12,24 @@
             <xpath expr="//block[@name='kiosk_mode_setting_container']" position="after">
                 <block title="Shift Settings" name="attendance_shift">
                     <setting string="Work Time Configuration">
-                        <div class="row mt16">
-                            <div class="col-6">
-                                <label for="work_start_time"/>
-                                <field name="work_start_time"/>
-                            </div>
-                            <div class="col-6">
-                                <label for="work_end_time"/>
-                                <field name="work_end_time"/>
-                            </div>
+                    <div class="row mt16">
+                        <div class="col-6">
+                            <label for="work_start_time"/>
+                            <field name="work_start_time"/>
                         </div>
+                        <div class="col-6">
+                            <label for="work_end_time"/>
+                            <field name="work_end_time"/>
+                        </div>
+                    </div>
+                    <div class="row mt16">
+                        <div class="col-12">
+                            <label for="day_works"/>
+                            <field name="day_works"/>
+                        </div>
+                    </div>
                     </setting>
+                
                 </block>
             </xpath>
 
