@@ -48,6 +48,8 @@ class HrPayrollStructure(models.Model):
         default=lambda self: self._compute_require_code(),
     )
 
+    job_id = fields.Many2one("hr.job", string="Job")
+
     def _compute_require_code(self):
         require = (
             self.env["ir.config_parameter"]

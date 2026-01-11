@@ -78,7 +78,7 @@ class HrPayslipLine(models.Model):
     @api.depends("quantity", "amount", "rate")
     def _compute_total(self):
         for line in self:
-            line.total = float(line.quantity) * line.amount * line.rate / 100
+            line.total = line.amount
 
     @api.model_create_multi
     def create(self, vals_list):

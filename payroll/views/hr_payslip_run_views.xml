@@ -113,10 +113,10 @@
                         class="oe_highlight"
                     />
                     <button
-                        name="%(action_hr_payslip_by_employees)d"
-                        type="action"
+                        name="prepare_payslip_vals"
+                        type="object"
                         invisible="state != 'draft'"
-                        string="Generate Payslips"
+                        string="Prepare Payslip Values"
                         class="oe_highlight"
                     />
                     <button
@@ -148,6 +148,7 @@
                                 name="company_id"
                                 groups="base.group_multi_company"
                             />
+                            <field name="employee_ids"  widget="many2many_tags" domain="[('contract_id.struct_id', '=', struct_id)]"/>
                         </group>
                         <group name="other">
                             <field name="struct_id" readonly="state != 'draft'" />
