@@ -2,7 +2,8 @@
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields, models
+from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 
 class HrPayslipRun(models.Model):
@@ -11,7 +12,16 @@ class HrPayslipRun(models.Model):
     _description = "Payslip Batches"
     _order = "id desc"
 
-    name = fields.Char(required=True, readonly=True)
+    employee_ids = fields.Many2many(
+        "hr.employee",
+        "hr_employee_payslip_run_rel",
+        "payslip_run_id",
+        "employee_id",
+        string="Employees",
+        compute="_compute_employee_ids",
+    )
+
+    name = fields.Char(required=True, readonly=True, compute="_compute_name")
     slip_ids = fields.One2many(
         "hr.payslip",
         "payslip_run_id",
@@ -68,3 +78,56 @@ class HrPayslipRun(models.Model):
 
     def close_payslip_run(self):
         return self.write({"state": "close"})
+
+    @api.depends("date_start", "date_end", "struct_id")
+    def _compute_name(self):
+        for run in self:
+            month = run.date_start.month
+            if run.struct_id:
+                job_name = run.struct_id.job_id.name
+                run.name = f"Bang luong cho {job_name} tu thang {month} "
+            else:
+                run.name = f"Bang luong tu thang {month} "
+
+    @api.depends("struct_id")
+    def _compute_employee_ids(self):
+        for run in self:
+            if run.struct_id:
+                states = ["open", "draft"]
+                contracts = self.env["hr.contract"].search(
+                    [("struct_id.id", "=", run.struct_id.id), ("state", "in", states)]
+                )
+                employees = contracts.mapped("employee_id")
+                run.employee_ids = employees
+            else:
+                run.employee_ids = False
+
+    # Prepare payslip values for all selected employees
+    def prepare_payslip_vals(self):
+        for run in self:
+            if run.employee_ids:
+                for employee in run.employee_ids:
+                    # check if payslip already exists
+                    payslip = self.env["hr.payslip"].search(
+                        [
+                            ("employee_id", "=", employee.id),
+                            ("date_from", "=", run.date_start),
+                            ("date_to", "=", run.date_end),
+                        ]
+                    )
+                    if payslip:
+                        continue
+                    payslip = self.env["hr.payslip"].create(
+                        {
+                            "name": f"Bang luong cho {employee.name} tu thang {run.date_start.month} den thang {run.date_end.month} ",
+                            "employee_id": employee.id,
+                            "date_from": run.date_start,
+                            "date_to": run.date_end,
+                            "credit_note": run.credit_note,
+                            # "journal_id": run.journal_id.id,
+                            "company_id": employee.company_id.id,
+                            "struct_id": run.struct_id.id,
+                            "contract_id": employee.contract_id.id,
+                            "payslip_run_id": run.id,
+                        }
+                    )

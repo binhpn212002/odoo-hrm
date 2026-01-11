@@ -273,7 +273,14 @@ class HrPayslip(models.Model):
             number = payslip.number or self.env["ir.sequence"].next_by_code(
                 "salary.slip"
             )
-            lines = [(0, 0, line) for line in list(payslip.get_lines_dict().values())]
+            rules = payslip.struct_id.rule_ids
+            contract = payslip.contract_id
+            lines = [
+                (0, 0, line)
+                for line in self.get_lines_array(
+                    contract, payslip.date_from, payslip.date_to
+                )
+            ]
             payslip.write(
                 {
                     "line_ids": lines,
@@ -576,46 +583,36 @@ class HrPayslip(models.Model):
             "Use of _get_payslip_lines() is deprecated. "
             "Use get_lines_dict() instead."
         )
-        return self.browse(payslip_id).get_lines_dict()
 
-    def get_lines_dict(self):
-        lines_dict = {}
-        blacklist = []
-        for payslip in self:
-            contracts = payslip._get_employee_contracts()
-            baselocaldict = payslip._get_baselocaldict(contracts)
-            for contract in contracts:
-                # assign "current_contract" dict
-                baselocaldict["current_contract"] = BrowsableObject(
-                    payslip.employee_id.id,
-                    payslip.get_current_contract_dict(contract, contracts),
-                    payslip.env,
-                )
-                # set up localdict with current contract and employee values
-                localdict = dict(
-                    baselocaldict,
-                    employee=contract.employee_id,
-                    contract=contract,
-                    payslip=payslip,
-                )
-                for rule in payslip._get_salary_rules():
-                    localdict = rule._reset_localdict_values(localdict)
-                    # check if the rule can be applied
-                    if rule._satisfy_condition(localdict) and rule.id not in blacklist:
-                        localdict, _dict = payslip._compute_payslip_line(
-                            rule, localdict, lines_dict
-                        )
-                        lines_dict.update(_dict)
-                    else:
-                        # blacklist this rule and its children
-                        blacklist += [
-                            id for id, seq in rule._recursive_search_of_rules()
-                        ]
-                # call localdict_hook
-                localdict = payslip.localdict_hook(localdict)
-                # reset "current_contract" dict
-                baselocaldict["current_contract"] = {}
-        return lines_dict
+        # return self.browse(payslip_id).get_lines_dict()
+
+        return True
+
+    def get_lines_array(self, contract, date_from, date_to):
+        lines_array = []
+        wage = contract.wage
+        rules = contract.struct_id.rule_ids
+
+        for rule in rules:
+            if rule.amount_select == "percentage":
+                amount = wage * rule.amount_percentage / 100
+                rate = rule.amount_percentage
+            else:
+                amount = rule.amount_fix
+                rate = 100
+            lines_array.append(
+                {
+                    "code": rule.code,
+                    "name": rule.name,
+                    "category_id": rule.category_id.id,
+                    "amount": amount,
+                    "quantity": 1,
+                    "rate": rate,
+                    "total": amount,
+                    "salary_rule_id": rule.id,
+                }
+            )
+        return lines_array
 
     def localdict_hook(self, localdict):
         # This hook is called when the function _get_lines_dict ends the loop
