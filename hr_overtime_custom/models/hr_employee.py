@@ -1,4 +1,7 @@
 import threading
+
+from ebaysdk.utils import parse_yaml
+
 from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 

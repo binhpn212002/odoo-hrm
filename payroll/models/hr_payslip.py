@@ -591,8 +591,9 @@ class HrPayslip(models.Model):
     def get_lines_array(self, contract, date_from, date_to):
         lines_array = []
         wage = contract.wage
+        employee = contract.employee_id.id
         rules = contract.struct_id.rule_ids
-
+        # common rules
         for rule in rules:
             if rule.amount_select == "percentage":
                 amount = wage * rule.amount_percentage / 100
@@ -610,6 +611,21 @@ class HrPayslip(models.Model):
                     "rate": rate,
                     "total": amount,
                     "salary_rule_id": rule.id,
+                }
+            )
+        employee_overtime = self.env["hr.overtime"].search(
+            [
+                ("employee_id", "=", employee),
+                ("date", ">=", date_from),
+                ("date", "<=", date_to),
+                ("state", "=", "approved"),
+            ]
+        )
+        for overtime in employee_overtime:
+            lines_array.append(
+                {
+                    "code": "OVERTIME",
+                    "name": "Tăng ca",
                 }
             )
         return lines_array

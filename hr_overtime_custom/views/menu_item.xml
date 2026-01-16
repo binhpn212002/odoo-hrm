@@ -16,6 +16,11 @@
                   parent="menu_hr_overtime_root"
                   action="action_hr_my_overtime"
                   sequence="10"/>
+        <menuitem id="menu_hr_overtime_summary"
+                  name="Báo cáo tổng kết tăng ca"
+                  parent="menu_hr_overtime_root"
+                  action="action_hr_overtime_summary"
+                  sequence="15"/>
 
         <menuitem id="menu_hr_overtime_configuration"
                   name="Cấu hình"
