@@ -2,7 +2,7 @@
 
 import logging
 import math
-from datetime import date, datetime, time
+from datetime import date, datetime, time, timedelta
 
 import babel
 from dateutil.relativedelta import relativedelta
@@ -273,7 +273,6 @@ class HrPayslip(models.Model):
             number = payslip.number or self.env["ir.sequence"].next_by_code(
                 "salary.slip"
             )
-            rules = payslip.struct_id.rule_ids
             contract = payslip.contract_id
             lines = [
                 (0, 0, line)
@@ -591,7 +590,7 @@ class HrPayslip(models.Model):
     def get_lines_array(self, contract, date_from, date_to):
         lines_array = []
         wage = contract.wage
-        employee = contract.employee_id.id
+        employee_id = contract.employee_id.id
         rules = contract.struct_id.rule_ids
         # common rules
         for rule in rules:
@@ -613,22 +612,70 @@ class HrPayslip(models.Model):
                     "salary_rule_id": rule.id,
                 }
             )
-        employee_overtime = self.env["hr.overtime"].search(
+
+        # add overtime summary lines
+        overtime_summary = self.env["hr.overtime.summary"].search(
             [
-                ("employee_id", "=", employee),
-                ("date", ">=", date_from),
-                ("date", "<=", date_to),
-                ("state", "=", "approved"),
+                ("employee_id", "=", employee_id),
+                ("date_from", "=", date_from),
+                ("date_to", "=", date_to),
             ]
         )
-        for overtime in employee_overtime:
+        total_day_work = self.calc_total_day_work_of_month(date_from, date_to)
+        # paid_amount_per_hour = wage / total_day_work / 8
+        paid_amount_per_hour = wage / total_day_work / 8
+
+        for overtime_summary in overtime_summary:
+            total_amount = paid_amount_per_hour * overtime_summary.total_overtime
+
             lines_array.append(
                 {
-                    "code": "OVERTIME",
+                    "code": overtime_summary.ot_type_id.code,
                     "name": "Tăng ca",
+                    "amount": paid_amount_per_hour,
+                    "quantity": overtime_summary.total_overtime,
+                    "rate": overtime_summary.ot_type_id.rate,
+                    "total": total_amount,
                 }
             )
         return lines_array
+
+    def calc_total_day_work_of_month(self, date_from, date_to):
+        """
+        Đếm số ngày làm việc từ date_from đến date_to (bao gồm cả 2 ngày).
+        Các ngày làm việc được xác định bởi tham số hệ thống 'day_works' (chuỗi các số từ 1-7, tức Thứ 2 - CN).
+        date_from and date_to are datetime.date hoặc datetime.datetime objects
+        """
+        # Lấy cấu hình ngày làm việc (mặc định nếu không thiết lập)
+        day_works = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("hr_attendance_custom.day_works", default="1,2,3,4,5")
+        )
+        if not day_works:
+            return 0
+        list_day_work = [int(day) for day in day_works.split(",")]
+        total_day_work = 0
+
+        # Đảm bảo giá trị ngày là dạng date (không phải datetime)
+        if hasattr(date_from, "date"):
+            start_date = date_from.date()
+        else:
+            start_date = date_from
+        if hasattr(date_to, "date"):
+            end_date = date_to.date()
+        else:
+            end_date = date_to
+
+        current_date = start_date
+        while current_date <= end_date:
+            # Python's weekday(): Thứ 2 là 0, Thứ 7 là 5, Chủ nhật là 6
+            # Cấu hình của mình tính Thứ 2 là 1, CN là 7
+            if (current_date.weekday() + 1) in list_day_work:
+                total_day_work += 1
+            current_date += timedelta(days=1)
+
+        return total_day_work
 
     def localdict_hook(self, localdict):
         # This hook is called when the function _get_lines_dict ends the loop
