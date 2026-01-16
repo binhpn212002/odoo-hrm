@@ -26,7 +26,10 @@ class HrPayslipLine(models.Model):
         compute="_compute_parent_line_id",
         store=True,
     )
-    salary_rule_id = fields.Many2one("hr.salary.rule", string="Rule", required=True)
+    salary_rule_id = fields.Many2one(
+        "hr.salary.rule",
+        string="Rule",
+    )
     employee_id = fields.Many2one("hr.employee", string="Employee", required=True)
     contract_id = fields.Many2one(
         "hr.contract", string="Contract", required=True, index=True
@@ -78,7 +81,7 @@ class HrPayslipLine(models.Model):
     @api.depends("quantity", "amount", "rate")
     def _compute_total(self):
         for line in self:
-            line.total = line.amount
+            line.total = line.amount * line.rate / 100
 
     @api.model_create_multi
     def create(self, vals_list):
