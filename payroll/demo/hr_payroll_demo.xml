@@ -144,61 +144,7 @@ result = categories.BASIC + categories.ALW + categories.DED
         <field name="sequence" eval="16" />
     </record>
 
-     <!-- Overtime Rules -->
-    <record id="hr_salary_rule_ot150" model="hr.salary.rule">
-        <field name="amount_select">percentage</field>
-        <field eval="150.0" name="amount_percentage" />
-        <field name="amount_percentage_base">contract.wage</field>
-        <field name="code">OT150</field>
-        <field name="category_id" ref="payroll.ALW" />
-        <field name="name">OT ngày thường</field>
-        <field name="sequence" eval="20" />
-    </record>
-    <record id="hr_salary_rule_ot200" model="hr.salary.rule">
-        <field name="amount_select">percentage</field>
-        <field eval="200.0" name="amount_percentage" />
-        <field name="amount_percentage_base">contract.wage</field>
-        <field name="code">OT200</field>
-        <field name="category_id" ref="payroll.ALW" />
-        <field name="name">OT ngày nghỉ</field>
-        <field name="sequence" eval="21" />
-    </record>
-    <record id="hr_salary_rule_ot300" model="hr.salary.rule">
-        <field name="amount_select">percentage</field>
-        <field eval="300.0" name="amount_percentage" />
-        <field name="amount_percentage_base">contract.wage</field>
-        <field name="code">OT300</field>
-        <field name="category_id" ref="payroll.ALW" />
-        <field name="name">OT ngày lễ</field>
-        <field name="sequence" eval="22" />
-    </record>
-    <record id="hr_salary_rule_ot180" model="hr.salary.rule">
-        <field name="amount_select">percentage</field>
-        <field eval="180.0" name="amount_percentage" />
-        <field name="amount_percentage_base">contract.wage</field>
-        <field name="code">OT180</field>
-        <field name="category_id" ref="payroll.ALW" />
-        <field name="name">OT ban đêm ngày thường</field>
-        <field name="sequence" eval="23" />
-    </record>
-    <record id="hr_salary_rule_ot230" model="hr.salary.rule">
-        <field name="amount_select">percentage</field>
-        <field eval="230.0" name="amount_percentage" />
-        <field name="amount_percentage_base">contract.wage</field>
-        <field name="code">OT230</field>
-        <field name="category_id" ref="payroll.ALW" />
-        <field name="name">OT ban đêm ngày nghỉ</field>
-        <field name="sequence" eval="24" />
-    </record>
-    <record id="hr_salary_rule_ot330" model="hr.salary.rule">
-        <field name="amount_select">percentage</field>
-        <field eval="330.0" name="amount_percentage" />
-        <field name="amount_percentage_base">contract.wage</field>
-        <field name="code">OT330</field>
-        <field name="category_id" ref="payroll.ALW" />
-        <field name="name">OT ban đêm ngày lễ</field>
-        <field name="sequence" eval="25" />
-    </record>
+
     <record id="hr_salary_rule_sales_commission" model="hr.salary.rule">
         <field name="amount_select">code</field>
         <field name="code">SALE</field>
